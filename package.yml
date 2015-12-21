@@ -1,0 +1,16 @@
+package: demo_base
+version: '1.0-beta1'
+author: Peter Bickel, Thomas Blum
+supportpage: www.redaxo.org/de/forum/
+
+page:
+    title: 'translate:title'
+    pjax: true
+    subpages:
+        description: { title: 'translate:description' }
+
+requires:
+    packages:
+        backup: '^2.0.0-beta2'
+        structure/content: '^2.0.0-beta2'
+    redaxo: '>=5.0.0-beta2'
