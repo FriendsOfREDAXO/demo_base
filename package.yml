@@ -1,16 +1,21 @@
 package: demo_base
-version: '1.0-beta1'
+version: '1.0'
 author: Peter Bickel, Thomas Blum
 supportpage: www.redaxo.org/de/forum/
 
 page:
-    title: 'translate:title'
+    title: 'Basis-Demo'
     pjax: true
     subpages:
-        description: { title: 'translate:description' }
+        description: { title: 'Basis-Demo' }
 
 requires:
     packages:
-        backup: '^2.0.0-beta2'
-        structure/content: '^2.0.0-beta2'
-    redaxo: '>=5.0.0-beta2'
+        backup: '>=2.0.1'
+        structure/content: '>=2.0.0'
+        textile: '>=2.0.0-beta2'
+        rex_redactor: '>=1.5.5'
+        rex_markitup: '>=1.2.0'
+        yform: '>=1.0-beta1'
+        phpmailer: '>=2.0.0'
+    redaxo: '>=5.0.0'

@@ -246,7 +246,7 @@ CREATE TABLE `rex_config` (
   `value` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_key` (`namespace`,`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_config` WRITE;
 /*!40000 ALTER TABLE `rex_config` DISABLE KEYS */;
@@ -287,11 +287,14 @@ INSERT INTO `rex_config` VALUES
   (80,'watson','quicklookHotkey','\"91\"'),
   (81,'watson','toggleButton','true'),
   (104,'slice_ui','online_from_to','[\"all\"]'),
-  (114,'core','package-config','{\"backup\":{\"install\":true,\"status\":true},\"be_style\":{\"install\":true,\"status\":true,\"plugins\":{\"customizer\":{\"install\":true,\"status\":true},\"redaxo\":{\"install\":true,\"status\":true}}},\"cronjob\":{\"install\":false,\"status\":false,\"plugins\":{\"article_status\":{\"install\":false,\"status\":false},\"optimize_tables\":{\"install\":false,\"status\":false}}},\"debug\":{\"install\":false,\"status\":false},\"developer\":{\"install\":true,\"status\":true},\"install\":{\"install\":true,\"status\":true},\"media_manager\":{\"install\":true,\"status\":true},\"mediapool\":{\"install\":true,\"status\":true},\"metainfo\":{\"install\":true,\"status\":true},\"phpmailer\":{\"install\":true,\"status\":true},\"rex_markitup\":{\"install\":true,\"status\":true},\"rex_redactor\":{\"install\":true,\"status\":true},\"slice_ui\":{\"install\":true,\"status\":true,\"plugins\":{\"slice_footer\":{\"install\":true,\"status\":true},\"slice_group\":{\"install\":false,\"status\":false},\"slice_json_block\":{\"install\":true,\"status\":true}}},\"structure\":{\"install\":true,\"status\":true,\"plugins\":{\"content\":{\"install\":true,\"status\":true},\"version\":{\"install\":false,\"status\":false}}},\"textile\":{\"install\":true,\"status\":true},\"users\":{\"install\":true,\"status\":true},\"watson\":{\"install\":true,\"status\":true},\"yform\":{\"install\":true,\"status\":true,\"plugins\":{\"email\":{\"install\":true,\"status\":true},\"manager\":{\"install\":false,\"status\":false}}}}'),
-  (115,'core','package-order','[\"be_style\",\"be_style\\/customizer\",\"be_style\\/redaxo\",\"users\",\"backup\",\"developer\",\"install\",\"media_manager\",\"mediapool\",\"phpmailer\",\"rex_markitup\",\"rex_redactor\",\"structure\",\"slice_ui\",\"slice_ui\\/slice_footer\",\"slice_ui\\/slice_json_block\",\"textile\",\"watson\",\"metainfo\",\"structure\\/content\",\"yform\",\"yform\\/email\"]'),
   (116,'structure','start_article_id','1'),
   (117,'structure','notfound_article_id','13'),
-  (118,'structure/content','default_template_id','1');
+  (118,'structure/content','default_template_id','1'),
+  (119,'install','backups','false'),
+  (120,'install','api_login','\"pbickel\"'),
+  (121,'install','api_key','\"172hs7fge73ganndif823\"'),
+  (123,'core','package-config','{\"backup\":{\"install\":true,\"status\":true},\"be_style\":{\"install\":true,\"status\":true,\"plugins\":{\"customizer\":{\"install\":true,\"status\":true},\"redaxo\":{\"install\":true,\"status\":true}}},\"cronjob\":{\"install\":false,\"status\":false,\"plugins\":{\"article_status\":{\"install\":false,\"status\":false},\"optimize_tables\":{\"install\":false,\"status\":false}}},\"debug\":{\"install\":false,\"status\":false},\"demo_base\":{\"install\":true,\"status\":true},\"developer\":{\"install\":true,\"status\":true},\"install\":{\"install\":true,\"status\":true},\"media_manager\":{\"install\":true,\"status\":true},\"mediapool\":{\"install\":true,\"status\":true},\"metainfo\":{\"install\":true,\"status\":true},\"phpmailer\":{\"install\":true,\"status\":true},\"rex_markitup\":{\"install\":true,\"status\":true},\"rex_redactor\":{\"install\":true,\"status\":true},\"slice_ui\":{\"install\":true,\"status\":true,\"plugins\":{\"slice_footer\":{\"install\":true,\"status\":true},\"slice_group\":{\"install\":false,\"status\":false},\"slice_json_block\":{\"install\":true,\"status\":true}}},\"structure\":{\"install\":true,\"status\":true,\"plugins\":{\"content\":{\"install\":true,\"status\":true},\"version\":{\"install\":false,\"status\":false}}},\"textile\":{\"install\":true,\"status\":true},\"users\":{\"install\":true,\"status\":true},\"watson\":{\"install\":true,\"status\":true},\"yform\":{\"install\":true,\"status\":true,\"plugins\":{\"email\":{\"install\":true,\"status\":true},\"manager\":{\"install\":false,\"status\":false}}}}'),
+  (124,'core','package-order','[\"be_style\",\"be_style\\/customizer\",\"be_style\\/redaxo\",\"users\",\"backup\",\"developer\",\"install\",\"media_manager\",\"mediapool\",\"phpmailer\",\"rex_markitup\",\"rex_redactor\",\"structure\",\"slice_ui\",\"slice_ui\\/slice_footer\",\"slice_ui\\/slice_json_block\",\"textile\",\"watson\",\"demo_base\",\"metainfo\",\"structure\\/content\",\"yform\",\"yform\\/email\"]');
 /*!40000 ALTER TABLE `rex_config` ENABLE KEYS */;
 UNLOCK TABLES;
 

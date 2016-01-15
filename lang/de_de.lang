@@ -1,5 +1,5 @@
 
 demo_base_description = Beschreibung
 demo_base_description_install_heading = Installation
-demo_base_description_install_body = Gehe zu <a href="{0}">Backup > Import > Vom Server</a> und importiere die Datenbank und den Dateiexport mit dem Prefix <code>rex_demo_base_</code>
+demo_base_description_install_body = Gehe zu <a href="{0}">Backup > Import > Vom Server</a> und importiere die Datenbank und den Dateiexport <code>demo_base_</code>
 demo_base_title = Demo
