@@ -9,7 +9,7 @@ Die Demo wird von Zeit zu Zeit erweitert und Fehler werden korrigiert. Wir sind 
 Installation
 -------------
 
-* Das Verzeichnis demo_base nach dem Auspacken in das AddOn-Verzeichnis kopieren:
+* Das AddOn-Verzeichnis muss den Namen *demo_base* haben; nach dem Auspacken in das AddOn-Verzeichnis kopieren:
 *redaxo/src/addons*
 * Das AddOn installieren unbd dem Link zum Backup-AddOn folgen
 * Datenbank und komprimierte Datei importieren
