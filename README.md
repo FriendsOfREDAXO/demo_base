@@ -11,5 +11,5 @@ Installation
 
 * Das AddOn-Verzeichnis muss den Namen *demo_base* haben; nach dem Auspacken in das AddOn-Verzeichnis kopieren:
 *redaxo/src/addons*
-* Das AddOn installieren unbd dem Link zum Backup-AddOn folgen
+* Das AddOn installieren und dem Link zum Backup-AddOn folgen
 * Datenbank und komprimierte Datei importieren
