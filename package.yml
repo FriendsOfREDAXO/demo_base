@@ -1,5 +1,5 @@
 package: demo_base
-version: '1.1'
+version: '1.2'
 author: Peter Bickel, Thomas Blum
 supportpage: www.redaxo.org/de/forum/
 
@@ -14,8 +14,8 @@ requires:
         backup: '>=2.0.2'
         structure/content: '>=2.0.1'
         textile: '>=2.0.0'
-        rex_redactor: '>=1.6.0'
+        rex_redactor: '>=1.6.1'
         rex_markitup: '>=1.4.0'
-        yform: '>=1.0-beta3'
+        yform: '>=1.0-beta4'
         phpmailer: '>=2.0.1'
-    redaxo: '>=5.0.1'
+    redaxo: '>=5.1.0'
