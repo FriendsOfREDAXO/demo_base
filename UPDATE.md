@@ -4,7 +4,7 @@ REDAXO Demo Base - Updatehinweise
 ### Version 1.2
 
 * Update auf REDAXO 5.1. Dadurch werden auch neue Felder in der Datenbank angelegt, so dass ein neuer Export der Demo nötig wurde.
-* Linzenzinformationen hinzugefügt in der Datei LICENSE.md
+* Lizenzinformationen hinzugefügt in der Datei LICENSE.md
 
 ### Version 1.1
 
