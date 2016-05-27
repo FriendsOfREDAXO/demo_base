@@ -6,6 +6,8 @@ Aber auch Umsteiger von REDAXO 4 zu REDAXO 5 finden in der Demo Hinweise, welche
 
 Die Demo wird von Zeit zu Zeit erweitert und Fehler werden korrigiert. Wir sind also über Hinweise dankbar.
 
+![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/demo_base/assets/demo_base_01.jpg)
+
 Installation
 -------------
 
