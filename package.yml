@@ -11,11 +11,12 @@ page:
 
 requires:
     packages:
-        backup: '>=2.0.2'
-        structure/content: '>=2.0.1'
+        backup: '>=2.0.3'
+        structure/content: '>=2.1.0'
         textile: '>=2.0.0'
-        rex_redactor: '>=1.6.1'
-        rex_markitup: '>=1.4.0'
-        yform: '>=1.0-beta4'
-        phpmailer: '>=2.0.1'
+        rex_redactor: '>=1.6.3'
+        rex_markitup: '>=1.4.2'
+        slice_ui: '>= 2.3.2'
+        yform: '>=1.0-beta7'
+        phpmailer: '>=2.1.0'
     redaxo: '>=5.1.0'
