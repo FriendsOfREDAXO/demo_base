@@ -7,6 +7,7 @@ REDAXO Demo Base - Updatehinweise
 
 * Mehrsprachigkeit! Die Demo mit allen Erklärungen ist komplett zweisprachig: deutsch und englisch. Vielen Dank an schuer für die Übersetzungen.
 * Die Demo zeigt natürlich auch, wie man in REDAXO mit mehreren Sprachen arbeiten kann.
+* Die Demo zog in den Github-Account von FriendsOfREDAXO um.
 
 
 *Bugfixes:*
