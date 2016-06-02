@@ -1,6 +1,20 @@
 REDAXO Demo Base - Updatehinweise
 ======================
 
+### Version 2.0
+
+*Neu:*
+
+* Mehrsprachigkeit! Die Demo mit allen Erklärungen ist komplett zweisprachig: deutsch und englisch. Vielen Dank an schuer für die Übersetzungen.
+* Die Demo zeigt natürlich auch, wie man in REDAXO mit mehreren Sprachen arbeiten kann.
+
+
+*Bugfixes:*
+
+* Auch die von YForm angelegten Tabellen wurden auf InnoDB umgestellt.
+* Die Abstände im Home-Slider wurden in der Mobil-Ansicht optimiert.
+* Das Logo ist nun als SVG eingebunden.
+
 ### Version 1.2
 
 * Update auf REDAXO 5.1. Dadurch werden auch neue Felder in der Datenbank angelegt, so dass ein neuer Export der Demo nötig wurde.
