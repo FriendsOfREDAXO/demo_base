@@ -1,4 +1,4 @@
-[Deutsch](#demo-fuer-redaxo-5) | [English](#demo-for-redaxo-5)
+[Deutsch](#demo-für-redaxo-5) | [English](#demo-for-redaxo-5)
 
 Demo für REDAXO 5
 =================
