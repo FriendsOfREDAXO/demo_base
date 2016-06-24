@@ -1,10 +1,11 @@
 package: demo_base
-version: '2.0'
+version: '2.1'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/demo_base
 
 page:
     title: 'Basis-Demo'
+    perm: demo_base[]
     pjax: true
     subpages:
         description: { title: 'Basis-Demo' }
@@ -13,10 +14,9 @@ requires:
     packages:
         backup: '>=2.0.3'
         structure/content: '>=2.1.0'
-        textile: '>=2.0.0'
-        rex_redactor: '>=1.6.3'
-        rex_markitup: '>=1.4.2'
-        slice_ui: '>= 2.3.2'
-        yform: '>=1.0-beta7'
+        rex_markitup: '>=2.0.0'
+        rex_redactor2: '>=2.1.0'
+        yform: '>=1.0'
         phpmailer: '>=2.1.0'
+        sprog: '>=1.0.0-beta3'
     redaxo: '>=5.1.0'

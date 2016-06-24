@@ -21,7 +21,7 @@ Die Demo setzt folgende externe AddOns voraus (diese können alle innerhalb von 
 * Textile
 * Rex-Redactor
 * Rex-Markitup
-* Slice-UI
+* Sprog
 * YForm
 * PHP-Mailer
 
@@ -50,6 +50,6 @@ The demo requires some external addons which can be downloaded via the REDAXO in
 * Textile
 * Rex-Redactor
 * Rex-Markitup
-* Slice-UI
+* Sprog
 * YForm
 * PHP-Mailer

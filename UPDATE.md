@@ -1,6 +1,14 @@
 REDAXO Demo Base - Updatehinweise
 ======================
 
+### Version 2.1
+
+*Neu:*
+
+* Hinweis auf Iconpicker-AddOn. Modul mit den drei Teaserkästen und Icons für das AddOn vorbereitet.
+* Demo für die Updates von rex_markitup und rex_redactor2 angepasst.
+* SliceUI als Pflicht-AddOn entfernt.
+
 ### Version 2.0
 
 *Neu:*
