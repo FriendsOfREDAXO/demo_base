@@ -7,6 +7,7 @@ REDAXO Demo Base - Updatehinweise
 
 * Hinweis auf Iconpicker-AddOn. Modul mit den drei Teaserkästen und Icons für das AddOn vorbereitet.
 * Demo für die Updates von rex_markitup und rex_redactor2 angepasst.
+* Textile als Pflicht-AddOn entfernt und Module angepasst für den in rex_markitup enthaltenen Textile-Parser.
 * SliceUI als Pflicht-AddOn entfernt.
 
 ### Version 2.0
