@@ -18,9 +18,8 @@ Installation
 
 Die Demo setzt folgende externe AddOns voraus (diese können alle innerhalb von REDAXO über den Installer installiert werden):
 
-* Textile
-* Rex-Redactor
-* Rex-Markitup
+* Redactor2
+* Markitup
 * Sprog
 * YForm
 * PHP-Mailer
@@ -47,9 +46,8 @@ Installation
 
 The demo requires some external addons which can be downloaded via the REDAXO installer:
 
-* Textile
-* Rex-Redactor
-* Rex-Markitup
+* Redactor2
+* Markitup
 * Sprog
 * YForm
 * PHP-Mailer
