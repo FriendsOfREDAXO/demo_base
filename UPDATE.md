@@ -1,6 +1,22 @@
 REDAXO Demo Base - Updatehinweise
 ======================
 
+### Version 2.3
+
+*Updates:*
+
+* Dependencies der verwendeten AddOns
+* Aktiv-Status in Footer-Linkliste
+* Bug und Optimierung bei Responsive-Navigation
+
+### Version 2.2
+
+*Updates:*
+
+* Externe Links im neuen Fenster angepasst
+* Dependencies auf markitup und redactor2 angepasst
+* Anforderungen an Core/Addons angepasst: REDAXO 5.2, YForm 2, Sprog
+
 ### Version 2.1
 
 *Neu:*
