@@ -1,0 +1,5 @@
+
+demo_base_description = Description
+demo_base_description_install_heading = Installation
+demo_base_description_install_body = Go to <a href="{0}">Backup > Import > From server</a> and import the database and the file export <code>demo_base</code>
+demo_base_title = Demo
