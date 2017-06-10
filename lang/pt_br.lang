@@ -1,0 +1,5 @@
+
+demo_base_description = Descrição
+demo_base_description_install_heading = Instalação
+demo_base_description_install_body = Vá para <a href="{0}">Backup > Importar > Do servidor</a> e importe o banco de dados e o arquivo de exportação <code>demo_base</code>
+demo_base_title = Demo
