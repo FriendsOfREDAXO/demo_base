@@ -1,6 +1,16 @@
 REDAXO Demo Base - Updatehinweise
 ======================
 
+### Version 2.4
+
+*Updates:*
+
+* Kompatibilität mit dem aktuellen Redactor-Addon
+* Code an verschiedenen Stellen verbessert
+* Anpassungen im Footer (Verlinkung, Styles)
+* Favicon und Touch-Icon
+* Dependencies der verwendeten AddOns
+
 ### Version 2.3
 
 *Updates:*
