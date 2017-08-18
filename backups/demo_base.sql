@@ -668,17 +668,19 @@ CREATE TABLE `rex_redactor2_profiles` (
   `minheight` smallint(5) unsigned NOT NULL,
   `maxheight` smallint(5) unsigned NOT NULL,
   `characterlimit` smallint(5) unsigned NOT NULL,
-  `toolbarfixed` tinyint(1) unsigned NOT NULL,
-  `shortcuts` tinyint(1) unsigned NOT NULL,
+  `toolbarfixed` tinyint(1) NOT NULL,
+  `shortcuts` tinyint(1) NOT NULL,
   `redactor_plugins` text NOT NULL,
+  `linkify` tinyint(1) NOT NULL,
+  `redactor_customplugins` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_redactor2_profiles` WRITE;
 /*!40000 ALTER TABLE `rex_redactor2_profiles` DISABLE KEYS */;
 INSERT INTO `rex_redactor2_profiles` VALUES 
-  (1,'full','Standard Redactor-Konfiguration','relative',300,800,0,0,0,'alignment,blockquote,bold,cleaner,clips[Snippetname1=Snippettext1|Snippetname2=Snippettext2],deleted,emaillink,externallink,fontcolor[Weiss=#ffffff|Schwarz=#000000],fontfamily[Arial|Times],fontsize[12px|15pt|120%],fullscreen,groupheading[1|2|3|4|5|6],grouplink[email|external|internal|media],grouplist[unorderedlist|orderedlist|indent|outdent],heading1,heading2,heading3,heading4,heading5,heading6,horizontalrule,internallink,italic,media,medialink,orderedlist,paragraph,properties,redo,source,styles[code=Code|kbd=Shortcut|mark=Markiert|samp=Sample|var=Variable],sub,sup,table,textdirection,underline,undo,unorderedlist'),
-  (2,'demo','Redactor-Konfiguration für die Demo','relative',300,800,0,1,1,'groupheading[1|2|3|4|5|6],alignment,bold,italic,unorderedlist,orderedlist,blockquote,table,grouplink[email|external|internal|media],horizontalrule,cleaner,fullscreen,properties,source');
+  (1,'full','Standard Redactor-Konfiguration','relative',300,800,0,0,0,'alignment,blockquote,bold,cleaner,clips[Snippetname1=Snippettext1|Snippetname2=Snippettext2],deleted,emaillink,externallink,fontcolor[Weiss=#ffffff|Schwarz=#000000],fontfamily[Arial|Times],fontsize[12px|15pt|120%],fullscreen,groupheading[1|2|3|4|5|6],grouplink[email|external|internal|media],grouplist[unorderedlist|orderedlist|indent|outdent],heading1,heading2,heading3,heading4,heading5,heading6,horizontalrule,internallink,italic,media,medialink,orderedlist,paragraph,properties,redo,source,styles[code=Code|kbd=Shortcut|mark=Markiert|samp=Sample|var=Variable],sub,sup,table,textdirection,underline,undo,unorderedlist',0,''),
+  (2,'demo','Redactor-Konfiguration für die Demo','relative',300,800,0,1,1,'groupheading[1|2|3|4|5|6],alignment,bold,italic,unorderedlist,orderedlist,blockquote,table,grouplink[email|external|internal|media],horizontalrule,cleaner,fullscreen,properties,source',0,'');
 /*!40000 ALTER TABLE `rex_redactor2_profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
