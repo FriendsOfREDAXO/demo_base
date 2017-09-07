@@ -1,0 +1,30 @@
+# additional requires (non-system packages)
+requires:
+    packages:
+        markitup: '>=3.0.0'
+        phpmailer: '>=2.1.2'
+        redactor2: '>=3.4.0'
+        sprog: '>=1.0.0'
+        yform: '>=2.2'
+
+# setup config
+# hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
+setup:
+    packages:
+        markitup: 1895    # 3.0.1
+        phpmailer: 1821   # 2.1.2
+        redactor2: 2036   # 3.4.1
+        sprog: 1446       # 1.0.0
+        yform: 1986       # 2.2
+    installSequence:
+        - backup
+        - structure/content
+        - phpmailer
+        - markitup
+        - redactor2
+        - sprog
+        - yform
+    dbimport:
+        - demo_base.sql
+    fileimport:
+        - demo_base.tar.gz
