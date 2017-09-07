@@ -1,5 +1,21 @@
 
-demo_base_description = Beschreibung
-demo_base_description_install_heading = Installation
-demo_base_description_install_body = Gehe zu <a href="{0}">Backup > Import > Vom Server</a> und importiere die Datenbank und den Dateiexport <code>demo_base_</code>
 demo_base_title = Demo
+
+demo_base_install = Installation
+demo_base_install_heading = Installation
+demo_base_install_description = Bitte beachten, dass bei der Installation alle Inhalte der Datenbank gelöscht werden!
+demo_base_install_button = Demo installieren
+
+demo_base_confirm_setup = Bestehende Daten gehen verloren. Fortfahren?
+
+demo_base_package_not_available      = Benötigte Version des Pakets <strong>"{0}"</strong> ist nicht verfügbar!
+demo_base_package_not_exists         = Paket <strong>"{0}"</strong> ist nicht vorhanden!
+demo_base_package_failed_to_download = Fehler beim Download von <strong>"{0}"</strong>!
+demo_base_package_failed_to_validate = Fehler bei der Validierung von <strong>"{0}"</strong>!
+demo_base_package_failed_to_extract  = Fehler beim Entpacken von <strong>"{0}"</strong>!
+demo_base_package_failed_to_install  = Fehler beim Installieren von <strong>"{0}"</strong>!
+demo_base_package_failed_to_activate = Fehler beim Aktivieren von <strong>"{0}"</strong>!
+demo_base_package_failed_to_import   = Fehler beim Importieren von <strong>"{0}"</strong>!
+
+demo_base_installation_error         = Demo konnte nicht installiert werden:
+demo_base_installation_success       = Demo wurde erfolgreich installiert!
