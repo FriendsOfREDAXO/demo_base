@@ -132,16 +132,16 @@ if (rex_post('install', 'boolean')) {
 
 /* setup info */
 
-$content = '<p>' . $this->i18n('demo_base_install_description') . '</p>';
-$content .= '<p><button class="btn btn-send" type="submit" name="install" value="1"><i class="rex-icon fa-download"></i> ' . $this->i18n('demo_base_install_button') . '</button></p>';
+$content = '<p>' . $this->i18n('install_description') . '</p>';
+$content .= '<p><button class="btn btn-send" type="submit" name="install" value="1"><i class="rex-icon fa-download"></i> ' . $this->i18n('install_button') . '</button></p>';
 
 $fragment = new rex_fragment();
-$fragment->setVar('title', $this->i18n('demo_base_install_heading'), false);
+$fragment->setVar('title', $this->i18n('install_heading'), false);
 $fragment->setVar('body', $content, false);
 $content = $fragment->parse('core/page/section.php');
 
 $content = '
-<form action="' . rex_url::currentBackendPage() . '" method="post" data-confirm="' . $this->i18n('demo_base_confirm_setup') . '">
+<form action="' . rex_url::currentBackendPage() . '" method="post" data-confirm="' . $this->i18n('confirm_setup') . '">
     ' . $content . '
 </form>';
 
@@ -152,7 +152,7 @@ echo $content;
 
 $content = '';
 
-$package = rex_package::get('demo_base');
+$package = rex_package::get($this->getName());
 $name = $package->getPackageId();
 $version = $package->getVersion();
 $author = $package->getAuthor();
