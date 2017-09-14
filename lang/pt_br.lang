@@ -1,5 +1,21 @@
 
-demo_base_description = Descrição
-demo_base_description_install_heading = Instalação
-demo_base_description_install_body = Vá para <a href="{0}">Backup > Importar > Do servidor</a> e importe o banco de dados e o arquivo de exportação <code>demo_base</code>
 demo_base_title = Demo
+
+demo_base_install = Instalação
+demo_base_install_heading = Instalação
+demo_base_install_description = Por favor, note que todos os conteúdos do banco de dados serão excluídos durante a instalação!
+demo_base_install_button = Instale o demo
+
+demo_base_confirm_setup = Os arquivos atuais serão deletados. Deseja continuar?
+
+demo_base_package_not_available      = Required version of package <b>"{0}"</b> not available for download!
+demo_base_package_not_exists         = Package <b>"{0}"</b> does not exist!
+demo_base_package_failed_to_download = Failed to download package <b>"{0}"</b>!
+demo_base_package_failed_to_validate = Failed to validate package <b>"{0}"</b>!
+demo_base_package_failed_to_extract  = Failed to extract package <b>"{0}"</b>!
+demo_base_package_failed_to_install  = Failed to install package <b>"{0}"</b>!
+demo_base_package_failed_to_activate = Failed to activate package <b>"{0}"</b>!
+demo_base_package_failed_to_import   = Failed to import <b>"{0}"</b>!
+
+demo_base_installation_error         = Failed to install demo:
+demo_base_installation_success       = Successfully installed demo!

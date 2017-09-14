@@ -1,5 +1,6 @@
-[Deutsch](#demo-für-redaxo-5) | [English](#demo-for-redaxo-5)
+[Deutsch](#deutsch) | [English](#english)
 
+<a name="deutsch"></a>
 Demo für REDAXO 5
 =================
 
@@ -28,6 +29,7 @@ Die Demo setzt folgende externe AddOns voraus (diese können alle innerhalb von 
 -----------------------------------------------------------------------
 
 
+<a name="english"></a>
 Demo for REDAXO 5
 =================
 
