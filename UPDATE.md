@@ -1,6 +1,12 @@
 REDAXO Demo Base - Updatehinweise
 ======================
 
+### Version 2.5
+
+*Updates:*
+
+* Automatisches Setup der Demo-Website
+
 ### Version 2.4
 
 *Updates:*
