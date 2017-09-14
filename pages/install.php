@@ -18,22 +18,25 @@ if (rex_post('install', 'boolean')) {
             $packagesFromInstaller = rex_install_packages::getAddPackages();
         } catch (rex_functional_exception $e) {
             $errors[] = $e->getMessage();
+            rex_logger::logException($e);
         }
 
-        foreach ($packages as $id => $fileId) {
+        if (count($errors) == 0) {
+            foreach ($packages as $id => $fileId) {
 
-            $localPackage = rex_package::get($id);
-            if ($localPackage->isSystemPackage()) {
-                continue;
-            }
+                $localPackage = rex_package::get($id);
+                if ($localPackage->isSystemPackage()) {
+                    continue; // skip system packages, they don’t need to be downloaded
+                }
 
-            $installerPackage = $packagesFromInstaller[$id]['files'][$fileId];
-            if (!$installerPackage) {
-                $errors[] = $this->i18n('package_not_available', $id);
-            }
+                $installerPackage = isset($packagesFromInstaller[$id]['files'][$fileId]) ? $packagesFromInstaller[$id]['files'][$fileId] : false;
+                if (!$installerPackage) {
+                    $errors[] = $this->i18n('package_not_available', $id);
+                }
 
-            if ($localPackage->getVersion() !== $installerPackage['version']) {
-                $missingPackages[$id] = $fileId;
+                if ($localPackage->getVersion() !== $installerPackage['version']) {
+                    $missingPackages[$id] = $fileId; // add to download list if package is not yet installed
+                }
             }
         }
     }
@@ -49,6 +52,7 @@ if (rex_post('install', 'boolean')) {
                 try {
                     $archivefile = rex_install_webservice::getArchive($installerPackage['path']);
                 } catch (rex_functional_exception $e) {
+                    rex_logger::logException($e);
                     $errors[] = $this->i18n('package_failed_to_download', $id);
                     break;
                 }
@@ -86,6 +90,7 @@ if (rex_post('install', 'boolean')) {
             try {
                 $manager->install();
             } catch (rex_functional_exception $e) {
+                rex_logger::logException($e);
                 $errors[] = $this->i18n('package_failed_to_install', $id);
                 break;
             }
@@ -93,6 +98,7 @@ if (rex_post('install', 'boolean')) {
             try {
                 $manager->activate();
             } catch (rex_functional_exception $e) {
+                rex_logger::logException($e);
                 $errors[] = $this->i18n('package_failed_to_activate', $id);
                 break;
             }
