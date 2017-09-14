@@ -8,34 +8,16 @@ rex_dir::copy(
     rex_addon::get('backup')->getDataPath()
 );
 
+// update config
+// merge current config with additional config
 
-// read configs
-$config1 = rex_file::getConfig($this->getPath('package.yml'));
-$config2 = rex_file::getConfig($this->getPath('package.setup.yml'));
-
-$requires1 = $config1['requires'];
-$requires2 = $config2['requires'];
-$packages1 = $config1['requires']['packages'];
-$packages2 = $config2['requires']['packages'];
-
-if (!is_array($requires1)) $requires1 = array();
-if (!is_array($requires2)) $requires2 = array();
-if (!is_array($packages1)) $packages1 = array();
-if (!is_array($packages2)) $packages2 = array();
-
-// merge requires and packages sections
-$requires = $requires1 + $requires2;
-$packages = $packages1 + $packages2;
-
-// merge configs
-$config = array_merge(
-    $config1,
-    $config2
+// Background information:
+// We need the demo to be installed first of all to fetch required packages and import data.
+// To make this happen, we need to keep the config free of external dependencies and use an
+// additional config which will be merged into the config when the demo is installed.
+$config = array_replace_recursive(
+    rex_file::getConfig($this->getPath('package.yml')),
+    rex_file::getConfig($this->getPath('package.setup.yml'))
 );
 
-// update config with requires and packages
-if (count($requires) > 0) $config['requires'] = $requires;
-if (count($packages) > 0) $config['requires']['packages'] = $packages;
-
-// save config
 rex_file::putConfig($this->getPath('package.yml'), $config);
