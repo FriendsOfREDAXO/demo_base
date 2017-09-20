@@ -9,8 +9,12 @@ if (rex_post('install', 'boolean')) {
     $errors = array();
 
     // step 1/5: select missing packages we need to download
-    $missingPackages = array();
-    $packages = $this->getProperty('setup')['packages'];
+    $missingPackages = array();   
+    $packages = array();
+    if (isset($this->getProperty('setup')['packages'])) {
+        $packages = $this->getProperty('setup')['packages'];
+    }
+
     if (count($packages) > 0) {
 
         // fetch list of available packages from to redaxo webservice
