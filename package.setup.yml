@@ -11,11 +11,11 @@ requires:
 # hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
 setup:
     packages:
-        markitup: 1895    # 3.0.1
+        markitup: 2078    # 3.0.2
         phpmailer: 1821   # 2.1.2
-        redactor2: 2036   # 3.4.1
+        redactor2: 2074   # 3.4.2
         sprog: 1446       # 1.0.0
-        yform: 1986       # 2.2
+        yform: 2024       # 2.3.b2
     installSequence:
         - backup
         - structure/content

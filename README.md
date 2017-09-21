@@ -13,9 +13,9 @@ Die Demo wird von Zeit zu Zeit erweitert und Fehler werden korrigiert. Wir sind 
 Installation
 ------------
 
-1. Das AddOn-Verzeichnis muss den Namen `demo_base` haben; nach dem Auspacken in das AddOn-Verzeichnis kopieren: `redaxo/src/addons`
-2. Das AddOn installieren und dem Link zum Backup-AddOn folgen
-3. Datenbank und komprimierte Datei importieren
+1. Das AddOn-Verzeichnis muss den Namen `demo_base` haben; nach dem Auspacken in das AddOn-Verzeichnis kopieren: `redaxo/src/addons`.
+2. Das AddOn installieren.
+3. Auf der Seite "Basis-Demo" auf "Demo installieren" klicken.
 
 Die Demo setzt folgende externe AddOns voraus (diese können alle innerhalb von REDAXO über den Installer installiert werden):
 
@@ -43,8 +43,8 @@ Installation
 ------------
 
 1. The addon folder name has to be `demo_base`; copy to REDAXO addons at `redaxo/src/addons`.
-2. Install the addon and follow the link to the backup addon.
-3. Import the database and the compressed file archive.
+2. Install the addon.
+3. On the page "Basis-Demo" click on "Install demo".
 
 The demo requires some external addons which can be downloaded via the REDAXO installer:
 

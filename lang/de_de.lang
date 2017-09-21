@@ -3,7 +3,7 @@ demo_base_title = Demo
 
 demo_base_install = Installation
 demo_base_install_heading = Installation
-demo_base_install_description = Bitte beachten, dass bei der Installation alle Inhalte der Datenbank gelöscht werden!
+demo_base_install_description = Bitte beachten, dass bei der Installation alle Inhalte der Datenbank gelöscht werden!<br>Die Installation kann etwas dauern, da auch alle benötigten AddOns geladen werden.
 demo_base_install_button = Demo installieren
 
 demo_base_confirm_setup = Bestehende Daten gehen verloren. Fortfahren?
