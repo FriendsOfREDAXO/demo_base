@@ -13,5 +13,5 @@ page:
 requires:
     packages:
         backup: '>=2.0.4'
-        structure/content: '>=2.3.1'
+        structure/content: '>=2.3.0'
     redaxo: '>=5.3.0'
