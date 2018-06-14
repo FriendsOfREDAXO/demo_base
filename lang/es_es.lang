@@ -1,0 +1,21 @@
+
+demo_base_title = Demo
+
+demo_base_install = instalación
+demo_base_install_heading = instalación
+demo_base_install_description = La instalación puede tardar un tiempo porque se cargarán todos los AddOns necesarios.
+demo_base_install_button = Instalar demo
+
+demo_base_confirm_setup = Se perderán los datos existentes. Continuar?
+
+demo_base_package_not_available      = La versión requerida del paquete <b>"{0}"</b> no está disponible.
+demo_base_package_not_exists         = ¡El paquete <b>"{0}"</b> no existe!
+demo_base_package_failed_to_download = Error al descargar el paquete <b>"{0}"</b>!
+demo_base_package_failed_to_validate = Error al validar el paquete <b>"{0}"</ b>!
+demo_base_package_failed_to_extract  = Error al extraer el paquete <b>"{0}"</b>!
+demo_base_package_failed_to_install  = Error al instalar el paquete <b>"{0}"</b>!
+demo_base_package_failed_to_activate = Error al activar el paquete <b>"{0}"</b>!
+demo_base_package_failed_to_import   = Error al importar <b>"{0}"</b>!
+
+demo_base_installation_error         = La demo no pudo ser instalada:
+demo_base_installation_success       = ¡Demo fue instalado exitosamente!
