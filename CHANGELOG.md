@@ -1,5 +1,27 @@
-REDAXO Demo Base - Updatehinweise
+REDAXO Demo Base - Changelog
 ======================
+
+### Version 2.6.2
+
+*Updates:*
+
+* Datenbankstruktur korrigiert
+* Fehlerprüfungen hinzugefügt
+* Versionen aktualisiert
+
+### Version 2.6.1
+
+*Updates:*
+
+* Structure-version angepasst für den Installationsprozess
+
+### Version 2.6
+
+*Updates:*
+
+* Dateigröße der Demo durch Komprimierung der Fotos drastisch reduziert
+* Onlinedatum und Offlinedatum für Artikel eingebaut
+* Diverse Bugs (PHP-Modul, Downloads-Modul, Clearing der Sidebar, Medientyp fullscreen)
 
 ### Version 2.6
 
