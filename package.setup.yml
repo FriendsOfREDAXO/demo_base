@@ -15,7 +15,7 @@ setup:
         phpmailer: 1821   # 2.1.2
         redactor2: 2514   # 3.5.0
         sprog: 1446       # 1.1.0
-        yform: 2538       # 3.0-beta2
+        yform: 2640       # 3.0-beta6
     installSequence:
         - backup
         - structure/content
