@@ -1,6 +1,13 @@
 REDAXO Demo Base - Changelog
 ======================
 
+### Version 2.6.3
+
+*Updates:*
+
+* Packages in `package.yml` angepasst (#66)
+* Information zum Umgang mit `package.setup.yml` ergänzt (#67)
+
 ### Version 2.6.2
 
 *Updates:*
