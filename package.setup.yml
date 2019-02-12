@@ -5,7 +5,7 @@ requires:
         phpmailer: '>=2.1.2'
         redactor2: '>=3.5.0'
         sprog: '>=1.1.0'
-        yform: '>=3.0-beta2'
+        yform: '>=3.0'
 
 # setup config
 # hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
@@ -15,7 +15,7 @@ setup:
         phpmailer: 1821   # 2.1.2
         redactor2: 2514   # 3.5.0
         sprog: 1446       # 1.1.0
-        yform: 2640       # 3.0-beta6
+        yform: 2695       # 3.0
     installSequence:
         - backup
         - structure/content
