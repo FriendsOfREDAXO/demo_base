@@ -1,6 +1,12 @@
 REDAXO Demo Base - Changelog
 ======================
 
+### Version 2.6.5
+
+*Updates:*
+
+* YForm-Version auf 3.0 angepasst (#68, @GianlucaScarciolla)
+
 ### Version 2.6.4
 
 *Updates:*
