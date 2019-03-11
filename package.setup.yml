@@ -12,7 +12,6 @@ requires:
 setup:
     packages:
         markitup: 2588    # 3.2.0
-        phpmailer: 1821   # 2.1.2
         redactor2: 2514   # 3.5.0
         sprog: 1446       # 1.1.0
         yform: 2695       # 3.0
