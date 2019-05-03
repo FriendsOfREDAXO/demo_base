@@ -1,6 +1,12 @@
 REDAXO Demo Base - Changelog
 ======================
 
+### Version 2.6.6
+
+*Updates:*
+
+* Kleine Bugfixes (#70, #71), Aktualisierungen von REDAXO und den AddOns
+
 ### Version 2.6.5
 
 *Updates:*
