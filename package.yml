@@ -17,6 +17,6 @@ requires:
         # install these addOns seamlessly for you once you’ve clicked the setup button.
         # After setup, both package files get merged. Be sure to not publish a merged `package.yml`
         # with your new release. Always use the original un-merged file!
-        backup: '>=2.3.0'
-        structure/content: '>=2.7.0'
-    redaxo: '>=5.7.1'
+        backup: '^2.3.0'
+        structure/content: '^2.7.0'
+    redaxo: '^5.7.1'
