@@ -2,20 +2,19 @@
 requires:
     packages:
         markitup: '>=3.2.0'
-        phpmailer: '>=2.1.2'
-        redactor2: '>=3.5.0'
-        sprog: '>=1.1.0'
-        yform: '>=3.0-beta2'
+        phpmailer: '>=2.5.1'
+        redactor2: '>=4.0.2'
+        sprog: '>=1.2.0'
+        yform: '>=3.1.1'
 
 # setup config
 # hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
 setup:
     packages:
         markitup: 2588    # 3.2.0
-        phpmailer: 1821   # 2.1.2
-        redactor2: 2514   # 3.5.0
-        sprog: 1446       # 1.1.0
-        yform: 2538       # 3.0-beta2
+        redactor2: 2672   # 4.0.2
+        sprog: 2727       # 1.2.0
+        yform: 2785       # 3.1.1
     installSequence:
         - backup
         - structure/content

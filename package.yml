@@ -1,5 +1,5 @@
 package: demo_base
-version: 2.6.2
+version: 2.6.6
 author: 'Friends Of REDAXO'
 supportpage: 'https://github.com/FriendsOfREDAXO/demo_base'
 page:
@@ -10,30 +10,13 @@ page:
         install: { title: 'translate:title' }
 requires:
     packages:
-        backup: '>=2.2.2'
-        structure/content: '>=2.6.0'
-        markitup: '>=3.2.0'
-        phpmailer: '>=2.1.2'
-        redactor2: '>=3.5.0'
-        sprog: '>=1.1.0'
-        yform: '>=3.0-beta2'
-    redaxo: '>=5.6.4'
-setup:
-    packages:
-        markitup: 2588
-        phpmailer: 1821
-        redactor2: 2514
-        sprog: 1446
-        yform: 2538
-    installSequence:
-        - backup
-        - structure/content
-        - phpmailer
-        - markitup
-        - redactor2
-        - sprog
-        - yform
-    dbimport:
-        - demo_base.sql
-    fileimport:
-        - demo_base.tar.gz
+        # Important: require system addOns only! Find other addOns required in `package.setup.yml`.
+        # This is because we want the demo to be installed in first place without the need to install
+        # any other addOns beforehand. The demo comes with a setup feature which checks the
+        # `package.setup.yml` file where all additional addOns are defined. It will download and
+        # install these addOns seamlessly for you once you’ve clicked the setup button.
+        # After setup, both package files get merged. Be sure to not publish a merged `package.yml`
+        # with your new release. Always use the original un-merged file!
+        backup: '>=2.3.0'
+        structure/content: '>=2.7.0'
+    redaxo: '>=5.7.1'
