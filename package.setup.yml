@@ -11,10 +11,10 @@ requires:
 # hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
 setup:
     packages:
-        markitup: 2588    # 3.2.0
+        markitup: 3037    # 3.3.4
         redactor2: 2672   # 4.0.2
         sprog: 2727       # 1.2.0
-        yform: 2785       # 3.1.1
+        yform: 2988       # 3.3.1
     installSequence:
         - backup
         - structure/content
