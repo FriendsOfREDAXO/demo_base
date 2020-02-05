@@ -112,6 +112,9 @@ if (rex_post('install', 'boolean')) {
     // step 4/5: import database
     if (count($this->getProperty('setup')['dbimport']) > 0 && count($errors) == 0) {
         foreach ($this->getProperty('setup')['dbimport'] as $import) {
+            if (rex::getConfig('utf8mb4')) {
+                $import = str_replace('utf8.sql', 'utf8mb4.sql', $import);
+            }
             $file = rex_backup::getDir() . '/' . $import;
             $success = rex_backup::importDb($file);
             if (!$success['state']) {
