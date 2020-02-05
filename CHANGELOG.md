@@ -1,7 +1,7 @@
 REDAXO Demo Base - Changelog
 ======================
 
-## Version 2.7.0 – 06.02.2020
+## Version 2.7.0 – XX.XX.2020
 
 ### Features
 
