@@ -24,6 +24,6 @@ setup:
         - sprog
         - yform
     dbimport:
-        - demo_base.sql
+        - demo_base.utf8.sql
     fileimport:
         - demo_base.tar.gz
