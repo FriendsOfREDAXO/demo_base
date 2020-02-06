@@ -19,4 +19,4 @@ requires:
         # with your new release. Always use the original un-merged file!
         backup: '^2.3.0'
         structure/content: '^2.7.0'
-    redaxo: '^5.7.1'
+    redaxo: '^5.9.0'

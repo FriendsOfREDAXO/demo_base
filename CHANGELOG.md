@@ -7,6 +7,7 @@ REDAXO Demo Base - Changelog
 
 * Neue Importdatei mit vollständigem Unicode-Zeichensatz (utf8mb4) für REDAXO 5.9 hinzugefügt. Bestehende Importdatei (utf8) für REDAXO 5.9 aktualisiert.
 * Importfunktion aktualisiert
+* REDAXO-Mindestversion auf 5.9.0 angehoben
 * READMEs nach Sprachen aufgeteilt
 * Upgrade auf jQuery 3.4.1 ([#73](https://github.com/FriendsOfREDAXO/demo_base/issues/73))  
   jQuery Migrate hinzugefügt, um Kompatibilität mit prettyPhoto zu erhalten.
