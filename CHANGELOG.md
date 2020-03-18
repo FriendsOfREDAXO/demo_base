@@ -1,5 +1,16 @@
-REDAXO Demo Base - Changelog
-======================
+# REDAXO Demo Base - Changelog
+
+
+## Version 2.8.0 – 18.03.2020
+
+### Features
+
+* Installation über die Konsole mittels `demo_base:install`
+
+### Bugfixes
+
+* Anpassungen für REDAXO 5.10
+
 
 ## Version 2.7.0 – 06.02.2020
 
