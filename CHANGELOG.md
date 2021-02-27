@@ -1,6 +1,16 @@
 # REDAXO Demo Base - Changelog
 
 
+## Version 2.8.1 – 27.02.2021
+
+### Bugfixes
+
+* ID der Trennline im Modul »03 . Text mit Bild (1 - 3 Spalten)« korrigiert ([#76](https://github.com/FriendsOfREDAXO/demo_base/issues/76))
+* Verwendete AddOns aktualisiert
+* Links ins Forum korrigiert, so dass sie nun auf den Slack-Chat zeigen
+* Link auf die Lieblinge auf redaxo.org korrigiert
+
+
 ## Version 2.8.0 – 18.03.2020
 
 ### Features
