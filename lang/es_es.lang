@@ -19,3 +19,5 @@ demo_base_package_failed_to_import   = Error al importar <b>"{0}"</b>!
 
 demo_base_installation_error         = La demo no pudo ser instalada:
 demo_base_installation_success       = ¡Demo fue instalado exitosamente!
+
+demo_base_success_message            =

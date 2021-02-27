@@ -19,3 +19,5 @@ demo_base_package_failed_to_import   = Fehler beim Importieren von <b>"{0}"</b>!
 
 demo_base_installation_error         = Demo konnte nicht installiert werden:
 demo_base_installation_success       = Demo wurde erfolgreich installiert!
+
+demo_base_success_message            = Die Demo kann nun auf der Seite {0} installiert werden.

@@ -2,6 +2,9 @@
 
 /** @var rex_addon $this */
 
+// add success message after add-on install
+$this->setProperty('successmsg', rex_i18n::rawMsg('demo_base_success_message', '<a href="' . rex_url::backendPage('demo_base') . '">' . $this->i18n('demo_base') . '</a>'));
+
 // copy backup files
 rex_dir::copy(
     $this->getPath('backups'),
