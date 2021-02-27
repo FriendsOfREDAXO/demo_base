@@ -5,17 +5,15 @@
 /* setup process */
 
 if (rex_post('install', 'boolean')) {
-
     $errors = rex_demo_base::install();
 
     // show result messages
     if (count($errors) > 0) {
-        echo rex_view::error("<p>" . $this->i18n('installation_error') . "</p><ul><li>" . implode("</li><li>", $errors) . "</li></ul>");
+        echo rex_view::error('<p>' . $this->i18n('installation_error') . '</p><ul><li>' . implode('</li><li>', $errors) . '</li></ul>');
     } else {
-        echo rex_view::success("<p>" . $this->i18n('installation_success') . "</p>");
+        echo rex_view::success('<p>' . $this->i18n('installation_success') . '</p>');
     }
 }
-
 
 /* setup info */
 
@@ -33,7 +31,6 @@ $content = '
 </form>';
 
 echo $content;
-
 
 /* package info from README.md */
 
@@ -61,7 +58,6 @@ if (!empty($content)) {
     $fragment->setVar('body', $content, false);
     echo $fragment->parse('core/page/section.php');
 }
-
 
 /* credits */
 
