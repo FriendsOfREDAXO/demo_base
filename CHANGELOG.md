@@ -1,7 +1,7 @@
 # REDAXO Demo Base - Changelog
 
 
-## Version 2.9.0 – 27.02.2021
+## Version 2.9.1 – 27.02.2021
 
 ### Features
 
