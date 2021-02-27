@@ -1,6 +1,14 @@
 # REDAXO Demo Base - Changelog
 
 
+## Version 2.9.0 – 27.02.2021
+
+### Features
+
+* Hinweis auf die Demo-Seite nach Installation des AddOns
+* Mehrsprachige Seitentitel
+
+
 ## Version 2.8.2 – 27.02.2021
 
 ### Bugfixes
