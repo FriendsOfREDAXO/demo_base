@@ -1,6 +1,13 @@
 # REDAXO Demo Base - Changelog
 
 
+## Version 2.10.0 – 29.09.2021
+
+### Features
+
+* Anpassung für den Dark Mode (REDAXO 5.13)
+
+
 ## Version 2.9.1 – 27.02.2021
 
 ### Features
