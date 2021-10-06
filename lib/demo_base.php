@@ -9,7 +9,7 @@ class rex_demo_base {
 
         $errors = array();
 
-        // step 1/6: select missing packages we need to download
+        // step 1: select missing packages we need to download
         $missingPackages = array();
         $packages = array();
         if (isset($addon->getProperty('setup')['packages'])) {
@@ -46,7 +46,7 @@ class rex_demo_base {
             }
         }
 
-        // step 2/6: download required packages
+        // step 2: download required packages
         if (count($missingPackages) > 0 && count($errors) == 0) {
             foreach ($missingPackages as $id => $fileId) {
 
@@ -80,7 +80,7 @@ class rex_demo_base {
             }
         }
 
-        // step 3/6: install and activate packages based on install sequence from config
+        // step 3: install and activate packages based on install sequence from config
         if (count($addon->getProperty('setup')['installSequence']) > 0 && count($errors) == 0) {
             foreach ($addon->getProperty('setup')['installSequence'] as $id) {
 
@@ -110,7 +110,7 @@ class rex_demo_base {
             }
         }
 
-        // step 4/6: import database
+        // step 4: import database
         if (count($addon->getProperty('setup')['dbimport']) > 0 && count($errors) == 0) {
             foreach ($addon->getProperty('setup')['dbimport'] as $import) {
                 $file = rex_backup::getDir() . '/' . $import;
@@ -121,7 +121,7 @@ class rex_demo_base {
             }
         }
 
-        // step 5/6: import files
+        // step 5: import files
         if (count($addon->getProperty('setup')['fileimport']) > 0 && count($errors) == 0) {
             foreach ($addon->getProperty('setup')['fileimport'] as $import) {
                 $file = rex_backup::getDir() . '/' . $import;
@@ -132,9 +132,14 @@ class rex_demo_base {
             }
         }
 
-        // step 6/6: make yrewrite copy its htaccess file
+        // step 6: make yrewrite copy its htaccess file
         if (class_exists('rex_yrewrite')) {
             rex_yrewrite::copyHtaccess();
+        }
+
+        // step 7: clear developer addon data
+        if (rex_addon::get('developer')->isAvailable()) {
+            rex_dir::delete(rex_addon::get('developer')->getDataPath());
         }
 
         return $errors;
