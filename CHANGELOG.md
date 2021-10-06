@@ -1,6 +1,13 @@
 # REDAXO Demo Base - Changelog
 
 
+## Version 2.10.1 – 06.10.2021
+
+### Bugfixes
+
+* Fehler bei der Installation behoben, wenn zuvor das Developer-AddOn aktiviert war
+
+
 ## Version 2.10.0 – 29.09.2021
 
 ### Features
