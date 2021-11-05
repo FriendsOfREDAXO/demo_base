@@ -1,5 +1,5 @@
 
-demo_base_title =
+demo_base_title = Basdemo
 
 demo_base_install = Installation
 demo_base_install_heading = Installation
@@ -20,4 +20,4 @@ demo_base_package_failed_to_import   = Import av <b> "{0}" </ b> misslyckades!
 demo_base_installation_error         = Demo kunde inte installeras:
 demo_base_installation_success       = Demo installerades med framgång!
 
-demo_base_success_message            =
+demo_base_success_message            = Demon kan nu installeras på sidan {0}.
