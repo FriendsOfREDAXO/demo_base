@@ -3,7 +3,7 @@ requires:
     packages:
         markitup: '^3.2.0'
         phpmailer: '^2.5.1'
-        redactor2: '^4.0.2'
+        redactor: '^2.3.0'
         sprog: '^1.2.0'
         yform: '^3.1.1'
 
@@ -12,7 +12,7 @@ requires:
 setup:
     packages:
         markitup: 3382    # 3.6.0
-        redactor2: 3446   # 4.1.0
+        redactor: 3841    # 2.3.0
         sprog: 2727       # 1.2.0
         yform: 3352       # 3.4.1
     installSequence:
@@ -20,7 +20,7 @@ setup:
         - structure/content
         - phpmailer
         - markitup
-        - redactor2
+        - redactor
         - sprog
         - yform
     dbimport:
