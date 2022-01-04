@@ -1,7 +1,7 @@
 # additional requires (non-system packages)
 requires:
     packages:
-        markitup: '^3.2.0'
+        markitup: '^3.7.1'
         phpmailer: '^2.5.1'
         redactor: '^2.3.0'
         sprog: '^1.2.0'
@@ -11,7 +11,7 @@ requires:
 # hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
 setup:
     packages:
-        markitup: 3382    # 3.6.0
+        markitup: 3791    # 3.7.1
         redactor: 3841    # 2.3.0
         sprog: 2727       # 1.2.0
         yform: 3352       # 3.4.1
