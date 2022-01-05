@@ -1,7 +1,7 @@
 # REDAXO Demo Base - Changelog
 
 
-## Version 3.0.0 – xx.xx.xxxx
+## Version 3.0.0 – 05.01.2022
 
 ### Breaking changes
 
@@ -10,11 +10,11 @@
 
 ### Features
 
-* Verwendet die neuen Mediatypen, die mit REDAXO 5.13 eingeführt wurden (z. B. `rex_media_small`)
+* Verwendung der neuen Mediatypen, die mit REDAXO 5.13 eingeführt wurden (z. B. `rex_media_small`)
 
 ### Bugfixes
 
-* Navigation korrigiert: Der Bereich »Templates« ist nun wieder vorhanden ([#82](https://github.com/FriendsOfREDAXO/demo_base/issues/82))
+* Navigation korrigiert: Der versehentlich deaktivierte Bereich »Templates« ist nun wieder vorhanden ([#82](https://github.com/FriendsOfREDAXO/demo_base/issues/82))
 * Diverse kleine Inhaltskorrekturen ([#82](https://github.com/FriendsOfREDAXO/demo_base/issues/82))
 
 
