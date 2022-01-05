@@ -1,6 +1,23 @@
 # REDAXO Demo Base - Changelog
 
 
+## Version 3.0.0 – xx.xx.xxxx
+
+### Breaking changes
+
+* Der **Redactor**-Editor wurde ausgewechselt: Es wird nun die aktuelle [Version 3](https://github.com/FriendsOfREDAXO/redactor) mit der Bezeichnung `redactor` verwendet. Die vorherige Version `redactor2` wird bereits seit einiger Zeit nicht weiterentwickelt.
+* **YForm** auf Version 4 aktualisiert. Diese bringt ein paar Änderungen mit, die jedoch für die Demo nicht relevant sind.
+
+### Features
+
+* Verwendet die neuen Mediatypen, die mit REDAXO 5.13 eingeführt wurden (z. B. `rex_media_small`)
+
+### Bugfixes
+
+* Navigation korrigiert: Der Bereich »Templates« ist nun wieder vorhanden ([#82](https://github.com/FriendsOfREDAXO/demo_base/issues/82))
+* Diverse kleine Inhaltskorrekturen ([#82](https://github.com/FriendsOfREDAXO/demo_base/issues/82))
+
+
 ## Version 2.10.1 – 06.10.2021
 
 ### Bugfixes
