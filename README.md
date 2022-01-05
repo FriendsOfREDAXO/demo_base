@@ -16,7 +16,7 @@ Installation
 
 The demo requires some external addons which can be downloaded via the REDAXO installer:
 
-* Redactor2
+* Redactor
 * Markitup
 * Sprog
 * YForm
