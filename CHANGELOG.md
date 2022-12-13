@@ -1,6 +1,13 @@
 # REDAXO Demo Base - Changelog
 
 
+## Version 3.0.1 – 13.12.2022
+
+### Bugfixes
+
+* Verwendete AddOns aktualisiert zwecks Kompatibilität mit PHP 8.2
+
+
 ## Version 3.0.0 – 05.01.2022
 
 ### Breaking changes
