@@ -2,6 +2,24 @@
 
 /** @var rex_addon $this */
 
+$addon = rex_addon::get('demo_base');
+
+// Delete Backup-Files
+$setupconfig = (array) $addon->getProperty('setup');
+$backupPath = rex_addon::get('backup')->getDataPath();
+
+if (isset($setupconfig['dbimport']) && is_array($setupconfig['dbimport']) &&count($setupconfig['dbimport']) > 0) {
+    foreach ($setupconfig['dbimport'] as $import) {
+        rex_file::delete($backupPath . $import);
+    }
+}
+
+if (isset($setupconfig['fileimport']) && is_array($setupconfig['fileimport']) && count($setupconfig['fileimport']) > 0) {
+    foreach ($setupconfig['fileimport'] as $import) {
+        rex_file::delete($backupPath.$import);
+    }
+}
+
 // update config
 // remove additional config from base config
 $config = array_diff_recursive(
