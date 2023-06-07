@@ -8,7 +8,7 @@ $addon = rex_addon::get('demo_base');
 $setupconfig = (array) $addon->getProperty('setup');
 $backupPath = rex_addon::get('backup')->getDataPath();
 
-if (isset($setupconfig['dbimport']) && is_array($setupconfig['dbimport']) &&count($setupconfig['dbimport']) > 0) {
+if (isset($setupconfig['dbimport']) && is_array($setupconfig['dbimport']) && count($setupconfig['dbimport']) > 0) {
     foreach ($setupconfig['dbimport'] as $import) {
         rex_file::delete($backupPath . $import);
     }
