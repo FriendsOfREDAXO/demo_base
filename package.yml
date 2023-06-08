@@ -20,6 +20,7 @@ requires:
         backup: '^2.3.0'
         structure/content: '^2.7.0'
     redaxo: '^5.9.0'
-
+    php:
+      version: '>=7.4, <8.3' # benötigt mindestens PHP 7.4
 console_commands:
     'demo_base:install': rex_command_demo_base_install
