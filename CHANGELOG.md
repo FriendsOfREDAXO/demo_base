@@ -1,5 +1,18 @@
 # REDAXO Demo Base - Changelog
 
+## Version 3.0.2 – 08.06.2022
+
+* Neue Versionen der benötigten AddOns in package.setup.yml @aeberhard
+  * markitup 3.7.3 -> 3.7.4
+  * sprog 1.4.0 -> 1.5.1
+  * yform 4.0.4 - 4.1.1
+* PHP-Version in package.yml >=7.4, <8.3
+
+### Bugfixes
+
+* Bei Deinstallation Backup-Daten aus dem Backup-Ordner löschen - https://github.com/FriendsOfREDAXO/demo_base/issues/87 @aeberhard
+* Modul 30 . PHP - Output war fehlerhaft, PHP-Code wurde nicht ausgeführt/ausgegeben - https://github.com/FriendsOfREDAXO/demo_base/issues/84 @aeberhard
+* Modul 08 . Akkordeon Tabs (Ausgabe) - Nach Ausgabe die Tabs initialisieren - https://github.com/FriendsOfREDAXO/demo_base/issues/85 @aeberhard
 
 ## Version 3.0.1 – 13.12.2022
 
@@ -76,14 +89,14 @@
 * Importfunktion aktualisiert
 * REDAXO-Mindestversion auf 5.9.0 angehoben
 * READMEs nach Sprachen aufgeteilt
-* Upgrade auf jQuery 3.4.1 ([#73](https://github.com/FriendsOfREDAXO/demo_base/issues/73))  
+* Upgrade auf jQuery 3.4.1 ([#73](https://github.com/FriendsOfREDAXO/demo_base/issues/73))
   jQuery Migrate hinzugefügt, um Kompatibilität mit prettyPhoto zu erhalten.
 * Update auf YForm 3.3.1
 * Update auf MarkItUp 3.3.4
 
-### Bugfixes 
+### Bugfixes
 
-* Prüfung von Online-Datum aus Metainfos korrigiert ([#74](https://github.com/FriendsOfREDAXO/demo_base/issues/74))  
+* Prüfung von Online-Datum aus Metainfos korrigiert ([#74](https://github.com/FriendsOfREDAXO/demo_base/issues/74))
 
 
 ## Version 2.6.6
