@@ -1,62 +1,45 @@
 ## Redaxo Database Dump Version 5
 ## Prefix rex_
-## charset utf8
+## charset utf8mb4
 
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `rex_action`;
-CREATE TABLE `rex_action` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `preview` text,
-  `presave` text,
-  `postsave` text,
-  `previewmode` tinyint DEFAULT NULL,
-  `presavemode` tinyint DEFAULT NULL,
-  `postsavemode` tinyint DEFAULT NULL,
-  `createdate` datetime NOT NULL,
-  `revision` int unsigned NOT NULL,
-  `createuser` varchar(255) NOT NULL,
-  `updatedate` datetime NOT NULL,
-  `updateuser` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 DROP TABLE IF EXISTS `rex_article`;
 CREATE TABLE `rex_article` (
-  `pid` int unsigned NOT NULL AUTO_INCREMENT,
-  `id` int unsigned NOT NULL,
-  `parent_id` int unsigned NOT NULL,
+  `pid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL,
+  `parent_id` int(10) unsigned NOT NULL,
   `name` varchar(255) NOT NULL,
   `catname` varchar(255) NOT NULL,
-  `catpriority` int unsigned NOT NULL,
+  `catpriority` int(10) unsigned NOT NULL,
   `startarticle` tinyint(1) NOT NULL,
-  `priority` int unsigned NOT NULL,
+  `priority` int(10) unsigned NOT NULL,
   `path` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `template_id` int unsigned NOT NULL,
-  `clang_id` int unsigned NOT NULL,
+  `template_id` int(10) unsigned NOT NULL,
+  `clang_id` int(10) unsigned NOT NULL,
   `createdate` datetime NOT NULL,
-  `revision` int unsigned NOT NULL,
+  `revision` int(10) unsigned NOT NULL,
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
-  `art_online_from` text,
-  `art_online_to` text,
+  `art_online_from` text DEFAULT NULL,
+  `art_online_to` text DEFAULT NULL,
   `art_file` varchar(255) DEFAULT '',
   `art_darken` varchar(255) DEFAULT '',
-  `art_gallery` text,
+  `art_gallery` text DEFAULT NULL,
   `cat_pic` varchar(255) DEFAULT '',
-  `cat_description` text,
-  `cat_teaser_legend` text,
-  `art_description` text,
-  `art_keywords` text,
-  `art_title` text,
+  `cat_description` text DEFAULT NULL,
+  `cat_teaser_legend` text DEFAULT NULL,
+  `art_description` text DEFAULT NULL,
+  `art_keywords` text DEFAULT NULL,
+  `art_title` text DEFAULT NULL,
   PRIMARY KEY (`pid`),
   UNIQUE KEY `find_articles` (`id`,`clang_id`),
   KEY `id` (`id`),
   KEY `clang_id` (`clang_id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_article` WRITE;
 /*!40000 ALTER TABLE `rex_article` DISABLE KEYS */;
@@ -96,34 +79,34 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_article_slice`;
 CREATE TABLE `rex_article_slice` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` int unsigned NOT NULL,
-  `clang_id` int unsigned NOT NULL,
-  `ctype_id` int unsigned NOT NULL,
-  `module_id` int unsigned NOT NULL,
-  `revision` int NOT NULL,
-  `priority` int unsigned NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  `value1` mediumtext,
-  `value2` mediumtext,
-  `value3` mediumtext,
-  `value4` mediumtext,
-  `value5` mediumtext,
-  `value6` mediumtext,
-  `value7` mediumtext,
-  `value8` mediumtext,
-  `value9` mediumtext,
-  `value10` mediumtext,
-  `value11` mediumtext,
-  `value12` mediumtext,
-  `value13` mediumtext,
-  `value14` mediumtext,
-  `value15` mediumtext,
-  `value16` mediumtext,
-  `value17` mediumtext,
-  `value18` mediumtext,
-  `value19` mediumtext,
-  `value20` mediumtext,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `article_id` int(10) unsigned NOT NULL,
+  `clang_id` int(10) unsigned NOT NULL,
+  `ctype_id` int(10) unsigned NOT NULL,
+  `module_id` int(10) unsigned NOT NULL,
+  `revision` int(11) NOT NULL,
+  `priority` int(10) unsigned NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `value1` mediumtext DEFAULT NULL,
+  `value2` mediumtext DEFAULT NULL,
+  `value3` mediumtext DEFAULT NULL,
+  `value4` mediumtext DEFAULT NULL,
+  `value5` mediumtext DEFAULT NULL,
+  `value6` mediumtext DEFAULT NULL,
+  `value7` mediumtext DEFAULT NULL,
+  `value8` mediumtext DEFAULT NULL,
+  `value9` mediumtext DEFAULT NULL,
+  `value10` mediumtext DEFAULT NULL,
+  `value11` mediumtext DEFAULT NULL,
+  `value12` mediumtext DEFAULT NULL,
+  `value13` mediumtext DEFAULT NULL,
+  `value14` mediumtext DEFAULT NULL,
+  `value15` mediumtext DEFAULT NULL,
+  `value16` mediumtext DEFAULT NULL,
+  `value17` mediumtext DEFAULT NULL,
+  `value18` mediumtext DEFAULT NULL,
+  `value19` mediumtext DEFAULT NULL,
+  `value20` mediumtext DEFAULT NULL,
   `media1` varchar(255) DEFAULT NULL,
   `media2` varchar(255) DEFAULT NULL,
   `media3` varchar(255) DEFAULT NULL,
@@ -134,16 +117,16 @@ CREATE TABLE `rex_article_slice` (
   `media8` varchar(255) DEFAULT NULL,
   `media9` varchar(255) DEFAULT NULL,
   `media10` varchar(255) DEFAULT NULL,
-  `medialist1` text,
-  `medialist2` text,
-  `medialist3` text,
-  `medialist4` text,
-  `medialist5` text,
-  `medialist6` text,
-  `medialist7` text,
-  `medialist8` text,
-  `medialist9` text,
-  `medialist10` text,
+  `medialist1` text DEFAULT NULL,
+  `medialist2` text DEFAULT NULL,
+  `medialist3` text DEFAULT NULL,
+  `medialist4` text DEFAULT NULL,
+  `medialist5` text DEFAULT NULL,
+  `medialist6` text DEFAULT NULL,
+  `medialist7` text DEFAULT NULL,
+  `medialist8` text DEFAULT NULL,
+  `medialist9` text DEFAULT NULL,
+  `medialist10` text DEFAULT NULL,
   `link1` varchar(10) DEFAULT NULL,
   `link2` varchar(10) DEFAULT NULL,
   `link3` varchar(10) DEFAULT NULL,
@@ -154,28 +137,28 @@ CREATE TABLE `rex_article_slice` (
   `link8` varchar(10) DEFAULT NULL,
   `link9` varchar(10) DEFAULT NULL,
   `link10` varchar(10) DEFAULT NULL,
-  `linklist1` text,
-  `linklist2` text,
-  `linklist3` text,
-  `linklist4` text,
-  `linklist5` text,
-  `linklist6` text,
-  `linklist7` text,
-  `linklist8` text,
-  `linklist9` text,
-  `linklist10` text,
+  `linklist1` text DEFAULT NULL,
+  `linklist2` text DEFAULT NULL,
+  `linklist3` text DEFAULT NULL,
+  `linklist4` text DEFAULT NULL,
+  `linklist5` text DEFAULT NULL,
+  `linklist6` text DEFAULT NULL,
+  `linklist7` text DEFAULT NULL,
+  `linklist8` text DEFAULT NULL,
+  `linklist9` text DEFAULT NULL,
+  `linklist10` text DEFAULT NULL,
   `createdate` datetime NOT NULL,
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
-  `group_template` int NOT NULL,
-  `group_closed` int NOT NULL,
+  `group_template` int(11) NOT NULL,
+  `group_closed` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `slice_priority` (`article_id`,`priority`,`module_id`),
   KEY `clang_id` (`clang_id`),
   KEY `article_id` (`article_id`),
   KEY `find_slices` (`clang_id`,`article_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_article_slice` WRITE;
 /*!40000 ALTER TABLE `rex_article_slice` DISABLE KEYS */;
@@ -313,15 +296,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_clang`;
 CREATE TABLE `rex_clang` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `priority` int unsigned NOT NULL,
+  `priority` int(10) unsigned NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `revision` int unsigned NOT NULL,
-  `clang_setlocale` text,
+  `revision` int(10) unsigned NOT NULL,
+  `clang_setlocale` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_clang` WRITE;
 /*!40000 ALTER TABLE `rex_clang` DISABLE KEYS */;
@@ -333,111 +316,107 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_config`;
 CREATE TABLE `rex_config` (
-  `namespace` varchar(75) NOT NULL,
-  `key` varchar(255) NOT NULL,
-  `value` text NOT NULL,
+  `namespace` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`namespace`,`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `rex_config` WRITE;
 /*!40000 ALTER TABLE `rex_config` DISABLE KEYS */;
 INSERT INTO `rex_config` VALUES 
-  ('core','package-config','{\"backup\":{\"install\":true,\"status\":true},\"be_style\":{\"install\":true,\"status\":true,\"plugins\":{\"customizer\":{\"install\":false,\"status\":false},\"redaxo\":{\"install\":true,\"status\":true}}},\"cronjob\":{\"install\":false,\"status\":false,\"plugins\":{\"article_status\":{\"install\":false,\"status\":false},\"optimize_tables\":{\"install\":false,\"status\":false}}},\"debug\":{\"install\":false,\"status\":false},\"demo_base\":{\"install\":true,\"status\":true},\"install\":{\"install\":true,\"status\":true},\"markitup\":{\"install\":true,\"status\":true,\"plugins\":{\"documentation\":{\"install\":false,\"status\":false}}},\"media_manager\":{\"install\":true,\"status\":true},\"mediapool\":{\"install\":true,\"status\":true},\"metainfo\":{\"install\":true,\"status\":true},\"phpmailer\":{\"install\":true,\"status\":true},\"project\":{\"install\":true,\"status\":true},\"redactor\":{\"install\":true,\"status\":true},\"sprog\":{\"install\":true,\"status\":true},\"structure\":{\"install\":true,\"status\":true,\"plugins\":{\"content\":{\"install\":true,\"status\":true},\"history\":{\"install\":false,\"status\":false},\"version\":{\"install\":false,\"status\":false}}},\"users\":{\"install\":true,\"status\":true},\"yform\":{\"install\":true,\"status\":true,\"plugins\":{\"email\":{\"install\":true,\"status\":true},\"manager\":{\"install\":true,\"status\":true},\"rest\":{\"install\":false,\"status\":false},\"tools\":{\"install\":false,\"status\":false}}}}'),
+  ('core','package-config','{\"backup\":{\"install\":true,\"status\":true},\"be_style\":{\"install\":true,\"status\":true,\"plugins\":{\"customizer\":{\"install\":false,\"status\":false},\"redaxo\":{\"install\":true,\"status\":true}}},\"cronjob\":{\"install\":false,\"status\":false,\"plugins\":{\"article_status\":{\"install\":false,\"status\":false},\"optimize_tables\":{\"install\":false,\"status\":false}}},\"debug\":{\"install\":false,\"status\":false},\"demo_base\":{\"install\":true,\"status\":true},\"demo_community\":{\"install\":false,\"status\":false},\"demo_onepage\":{\"install\":false,\"status\":false},\"developer\":{\"install\":false,\"status\":false},\"install\":{\"install\":true,\"status\":true},\"markitup\":{\"install\":true,\"status\":true,\"plugins\":{\"documentation\":{\"install\":false,\"status\":false}}},\"media_manager\":{\"install\":true,\"status\":true},\"mediapool\":{\"install\":true,\"status\":true},\"metainfo\":{\"install\":true,\"status\":true},\"phpmailer\":{\"install\":true,\"status\":true},\"project\":{\"install\":true,\"status\":true},\"redactor\":{\"install\":true,\"status\":true},\"sprog\":{\"install\":true,\"status\":true},\"structure\":{\"install\":true,\"status\":true,\"plugins\":{\"content\":{\"install\":true,\"status\":true},\"history\":{\"install\":false,\"status\":false},\"version\":{\"install\":false,\"status\":false}}},\"users\":{\"install\":true,\"status\":true},\"yform\":{\"install\":true,\"status\":true,\"plugins\":{\"email\":{\"install\":true,\"status\":true},\"manager\":{\"install\":true,\"status\":true},\"rest\":{\"install\":false,\"status\":false},\"tools\":{\"install\":false,\"status\":false}}}}'),
   ('core','package-order','[\"be_style\",\"be_style\\/redaxo\",\"users\",\"backup\",\"install\",\"markitup\",\"media_manager\",\"mediapool\",\"phpmailer\",\"redactor\",\"sprog\",\"structure\",\"metainfo\",\"structure\\/content\",\"yform\",\"demo_base\",\"yform\\/email\",\"yform\\/manager\",\"project\"]'),
-  ('core','version','\"5.10.0\"'),
+  ('core','utf8mb4','true'),
+  ('core','version','\"5.15.1\"'),
+  ('media_manager','avif_quality','60'),
+  ('media_manager','avif_speed','6'),
   ('media_manager','interlace','[\"jpg\"]'),
-  ('media_manager','jpg_quality','85'),
+  ('media_manager','jpg_quality','80'),
   ('media_manager','png_compression','5'),
   ('media_manager','webp_quality','85'),
   ('phpmailer','archive','false'),
   ('phpmailer','bcc','\"\"'),
   ('phpmailer','charset','\"utf-8\"'),
   ('phpmailer','confirmto','\"\"'),
+  ('phpmailer','detour_mode','false'),
   ('phpmailer','encoding','\"8bit\"'),
   ('phpmailer','errormail','0'),
-  ('phpmailer','from','\"from@example.com\"'),
+  ('phpmailer','from','\"\"'),
   ('phpmailer','fromname','\"Mailer\"'),
   ('phpmailer','host','\"localhost\"'),
   ('phpmailer','logging','0'),
-  ('phpmailer','mailer','\"mail\"'),
+  ('phpmailer','mailer','\"smtp\"'),
   ('phpmailer','password','\"\"'),
-  ('phpmailer','port','25'),
-  ('phpmailer','priority','3'),
-  ('phpmailer','security_mode','true'),
-  ('phpmailer','smtpauth','false'),
-  ('phpmailer','smtpsecure','\"\"'),
+  ('phpmailer','port','587'),
+  ('phpmailer','priority','0'),
+  ('phpmailer','security_mode','false'),
+  ('phpmailer','smtp_debug','\"0\"'),
+  ('phpmailer','smtpauth','true'),
+  ('phpmailer','smtpsecure','\"tls\"'),
+  ('phpmailer','test_address','\"\"'),
   ('phpmailer','username','\"\"'),
   ('phpmailer','wordwrap','120'),
   ('sprog','chunkSizeArticles','4'),
-  ('structure','notfound_article_id','13'),
-  ('structure','start_article_id','1'),
-  ('structure/content','default_template_id','1');
+  ('structure','notfound_article_id','1'),
+  ('structure','start_article_id','1');
 /*!40000 ALTER TABLE `rex_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_markitup_profiles`;
 CREATE TABLE `rex_markitup_profiles` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL DEFAULT '',
   `description` varchar(255) NOT NULL DEFAULT '',
   `urltype` varchar(50) NOT NULL,
-  `minheight` smallint unsigned NOT NULL,
-  `maxheight` smallint unsigned NOT NULL,
+  `minheight` smallint(5) unsigned NOT NULL,
+  `maxheight` smallint(5) unsigned NOT NULL,
   `type` varchar(50) NOT NULL,
   `markitup_buttons` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_markitup_profiles` WRITE;
 /*!40000 ALTER TABLE `rex_markitup_profiles` DISABLE KEYS */;
 INSERT INTO `rex_markitup_profiles` VALUES 
-  (1,'textile_full','Standard MarkItUp-Konfiguration','relative',300,800,'textile','bold,code,clips[Snippetname1=Snippettext1|Snippetname2=Snippettext2],deleted,emaillink,externallink,groupheading[1|2|3|4|5|6],grouplink[file|internal|external|mailto],heading1,heading2,heading3,heading4,heading5,heading6,internallink,italic,media,medialink,orderedlist,paragraph,quote,sub,sup,table,underline,unorderedlist'),
-  (2,'markdown_full','Standard MarkItUp-Konfiguration','relative',300,800,'markdown','bold,code,clips[Snippetname1=Snippettext1|Snippetname2=Snippettext2],deleted,emaillink,externallink,groupheading[1|2|3|4|5|6],grouplink[file|internal|external|mailto],heading1,heading2,heading3,heading4,heading5,heading6,internallink,italic,media,medialink,orderedlist,paragraph,quote,sub,sup,table,underline,unorderedlist');
+  (1,'textile_full','Textile default configuration','relative',300,800,'textile','bold,code,clips[Snippetname1=Snippettext1|Snippetname2=Snippettext2],deleted,emaillink,externallink,groupheading[1|2|3|4|5|6],grouplink[file|internal|external|mailto],heading1,heading2,heading3,heading4,heading5,heading6,internallink,italic,media,medialink,orderedlist,paragraph,quote,sub,sup,table,underline,unorderedlist'),
+  (2,'full','Markdown default configuration','relative',300,800,'markdown','bold,code,clips[Snippetname1=Snippettext1|Snippetname2=Snippettext2],deleted,emaillink,externallink,groupheading[1|2|3|4|5|6],grouplink[file|internal|external|mailto],heading1,heading2,heading3,heading4,heading5,heading6,internallink,italic,media,medialink,orderedlist,paragraph,quote,sub,sup,table,underline,unorderedlist');
 /*!40000 ALTER TABLE `rex_markitup_profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `rex_markitup_snippets`;
-CREATE TABLE `rex_markitup_snippets` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  `lang` varchar(30) NOT NULL,
-  `description` text NOT NULL,
-  `content` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 DROP TABLE IF EXISTS `rex_media`;
 CREATE TABLE `rex_media` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `category_id` int unsigned NOT NULL,
-  `attributes` text,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) unsigned NOT NULL,
+  `attributes` text DEFAULT NULL,
   `filetype` varchar(255) DEFAULT NULL,
   `filename` varchar(255) DEFAULT NULL,
   `originalname` varchar(255) DEFAULT NULL,
   `filesize` varchar(255) DEFAULT NULL,
-  `width` int unsigned DEFAULT NULL,
-  `height` int unsigned DEFAULT NULL,
+  `width` int(10) unsigned DEFAULT NULL,
+  `height` int(10) unsigned DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `createdate` datetime NOT NULL,
-  `revision` int unsigned NOT NULL,
+  `revision` int(10) unsigned NOT NULL,
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
-  `med_description` text,
+  `med_description` text DEFAULT NULL,
   `med_darken` varchar(255) DEFAULT '',
-  `med_gallery_legend` text,
-  `med_gallery_title` text,
-  `med_gallery_text` text,
-  `med_gallery_link_text` text,
-  `med_gallery_link` text,
-  `med_description_en` text,
-  `med_title_en` text,
-  `med_gallery_title_en` text,
-  `med_gallery_text_en` text,
-  `med_gallery_link_text_en` text,
+  `med_gallery_legend` text DEFAULT NULL,
+  `med_gallery_title` text DEFAULT NULL,
+  `med_gallery_text` text DEFAULT NULL,
+  `med_gallery_link_text` text DEFAULT NULL,
+  `med_gallery_link` text DEFAULT NULL,
+  `med_description_en` text DEFAULT NULL,
+  `med_title_en` text DEFAULT NULL,
+  `med_gallery_title_en` text DEFAULT NULL,
+  `med_gallery_text_en` text DEFAULT NULL,
+  `med_gallery_link_text_en` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `filename` (`filename`),
   KEY `category_id` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_media` WRITE;
 /*!40000 ALTER TABLE `rex_media` DISABLE KEYS */;
@@ -472,19 +451,19 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_media_category`;
 CREATE TABLE `rex_media_category` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `parent_id` int unsigned NOT NULL,
+  `parent_id` int(10) unsigned NOT NULL,
   `path` varchar(255) NOT NULL,
   `createdate` datetime NOT NULL,
-  `attributes` text,
-  `revision` int unsigned NOT NULL,
+  `attributes` text DEFAULT NULL,
+  `revision` int(10) unsigned NOT NULL,
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_media_category` WRITE;
 /*!40000 ALTER TABLE `rex_media_category` DISABLE KEYS */;
@@ -498,8 +477,8 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_media_manager_type`;
 CREATE TABLE `rex_media_manager_type` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `status` int unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `status` int(10) unsigned NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `createdate` datetime NOT NULL,
@@ -508,7 +487,7 @@ CREATE TABLE `rex_media_manager_type` (
   `updateuser` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_media_manager_type` WRITE;
 /*!40000 ALTER TABLE `rex_media_manager_type` DISABLE KEYS */;
@@ -525,17 +504,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_media_manager_type_effect`;
 CREATE TABLE `rex_media_manager_type_effect` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `type_id` int unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type_id` int(10) unsigned NOT NULL,
   `effect` varchar(255) NOT NULL,
   `parameters` text NOT NULL,
-  `priority` int unsigned NOT NULL,
+  `priority` int(10) unsigned NOT NULL,
   `createdate` datetime NOT NULL,
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_media_manager_type_effect` WRITE;
 /*!40000 ALTER TABLE `rex_media_manager_type_effect` DISABLE KEYS */;
@@ -555,25 +534,25 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_metainfo_field`;
 CREATE TABLE `rex_metainfo_field` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `priority` int unsigned NOT NULL,
+  `priority` int(10) unsigned NOT NULL,
   `attributes` text NOT NULL,
-  `type_id` int unsigned DEFAULT NULL,
+  `type_id` int(10) unsigned DEFAULT NULL,
   `default` varchar(255) NOT NULL,
-  `params` text,
-  `validate` text,
-  `callback` text,
-  `restrictions` text,
-  `templates` text,
+  `params` text DEFAULT NULL,
+  `validate` text DEFAULT NULL,
+  `callback` text DEFAULT NULL,
+  `restrictions` text DEFAULT NULL,
+  `templates` text DEFAULT NULL,
   `createdate` datetime NOT NULL,
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_metainfo_field` WRITE;
 /*!40000 ALTER TABLE `rex_metainfo_field` DISABLE KEYS */;
@@ -607,12 +586,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_metainfo_type`;
 CREATE TABLE `rex_metainfo_type` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `label` varchar(255) DEFAULT NULL,
   `dbtype` varchar(255) NOT NULL,
-  `dblength` int NOT NULL,
+  `dblength` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_metainfo_type` WRITE;
 /*!40000 ALTER TABLE `rex_metainfo_type` DISABLE KEYS */;
@@ -635,7 +614,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_module`;
 CREATE TABLE `rex_module` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `key` varchar(191) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `output` mediumtext NOT NULL,
@@ -644,19 +623,19 @@ CREATE TABLE `rex_module` (
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
-  `attributes` text,
-  `revision` int unsigned NOT NULL,
+  `attributes` text DEFAULT NULL,
+  `revision` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_module` WRITE;
 /*!40000 ALTER TABLE `rex_module` DISABLE KEYS */;
 INSERT INTO `rex_module` VALUES 
   (1,NULL,'01 . Titel / Intro','<?php\r\n// Is there a Headline?\r\nif (\"REX_VALUE[1]\" != \'\') {\r\n\r\n	// If template with one column, use Bootstrap-CSS-class .container to enable indent\r\n	?>\r\n	<div class=\"<?php if ($this->getTemplateId() == 1) echo \'container clearfix \'; ?>mtb\">\r\n		<div class=\"row\">\r\n			<div class=\"<?php if ($this->getTemplateId() == 1) echo \'col-lg-8 col-lg-offset-2 \'; ?>centered\">\r\n				<h2>REX_VALUE[1]</h2>\r\n				<br>\r\n				<div class=\"hline\"></div>\r\n			</div>\r\n		</div>\r\n	</div><! --/container -->\r\n<?php } ?>\r\n','<!-- *******************************************************\r\nTitel / Intro\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Titel / Intro</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <div class=\"col-sm-12\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control\" name=\"REX_INPUT_VALUE[1]\">REX_VALUE[1]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-11-30 17:31:33','admin','2016-06-02 12:26:54','admin','',0),
   (2,NULL,'02a . Text (Textile und Markitup)','<?php\r\n$template = ($this->getTemplateId() == 1) ? \' container\' : \'\';\r\n$distance = (\"REX_VALUE[19]\" != \'\') ? \' REX_VALUE[19]\' : \'\';\r\n$background = (\"REX_VALUE[16]\" == \'true\') ? \' grey\' : \'\';\r\n\r\necho \'\r\n<section class=\"module-wrapper clearfix\'.$background.\'\">\r\n<div class=\"full\'.$template.$distance.\'\">\';\r\n\r\n	// Left and right indent?\r\n	if (\"REX_VALUE[17]\" == \'vd\') {\r\n		echo \'\r\n		<div class=\"row\">\r\n		<div class=\"col-md-8 col-md-offset-2\">\';\r\n	}\r\n\r\n	if (\"REX_VALUE[1]\" != \'\') {\r\n		echo \'\r\n		<REX_VALUE[2]>REX_VALUE[1]</REX_VALUE[2]>\';\r\n	}\r\n\r\n	if (\'REX_VALUE[id=3 isset=1]\') {\r\n		// Parse text with Textile\r\n	    $textile = markitup::parseOutput(\'textile\', \'REX_VALUE[id=3 output=\"html\"]\');\r\n		// Use Bold-Tags to enable Bootstrap-Labels\r\n	    echo str_replace(array(\'<b>\', \'</b>\'), array(\'<span class=\"label label-primary\">\', \'</span>\'), $textile);\r\n	}\r\n\r\n	// Trennlinie?\r\n	if (\"REX_VALUE[18]\"== \'true\'){\r\n		echo \'\r\n		<div class=\"hline\"></div>\';\r\n	}\r\n\r\n	if (\"REX_VALUE[17]\" == \'vd\') {\r\n		echo \'\r\n		</div>\r\n		</div>\';\r\n	}\r\n	?>\r\n</div>\r\n</section>\r\n','<!-- *******************************************************\r\nTEXT\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Text</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline-level\">Überschrift-Ebene</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'h2\'=>\'2. Ebene\',\r\n				\'h3\'=>\'3. Ebene\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[2]\" id=\"headline-level\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[2]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_textile_1\" name=\"REX_INPUT_VALUE[3]\">REX_VALUE[3]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"padding\">Einrückung</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keine\',\r\n				\'vd\'=>\'ja\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[17]\" id=\"padding\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[17]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n\r\n			<br><section class=\"rex-page-section\">\r\n			    <div class=\"panel panel-default\">\r\n\r\n			        <header class=\"panel-heading collapsed\" data-toggle=\"collapse\" data-target=\"#collapse-REX_SLICE_ID\" aria-expanded=\"false\">\r\n						<div class=\"panel-title\"><i class=\"rex-icon rex-icon-info\"></i> Hinweis</div>\r\n					</header>\r\n\r\n			        <div id=\"collapse-REX_SLICE_ID\" class=\"panel-collapse collapse\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n\r\n			            <div class=\"panel-body\" style=\"background: #f3f6fb;\">\r\n			                <ul>\r\n								<li>Hier kann man eine linke und rechte Einrückung von je zwei Spalten des 12er-Bootstrap-Rasters aktivieren.</li>\r\n								<li>Der vertikale Abstand erzeugt einen oberen und unteren Zwischenraum von jeweils 60px.</li>\r\n							</ul>\r\n						</div>\r\n			        </div>\r\n			    </div>\r\n			</section>\r\n\r\n		</div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">vertikaler Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"line\">Trennlinie</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'nein\',\r\n				\'true\'=>\'ja\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[18]\" id=\"line\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[18]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"line\">Hintergrund</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'weiß\',\r\n				\'true\'=>\'grau\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[16]\" id=\"line\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[16]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-11-30 17:32:04','admin','2016-10-18 16:40:40','decaf','',0),
-  (3,NULL,'03 . Text mit Bild (1 - 3 Spalten)','<?php\r\n$grid_content1 = \'\';\r\n$grid_content2 = \'\';\r\n$grid_content3 = \'\';\r\n\r\n// col1\r\nif (\"REX_MEDIA[1]\" != \'\') {\r\n	$media = rex_media::get(\"REX_MEDIA[1]\");\r\n	if ($media instanceof rex_media) {\r\n        $mediatitle = str_replace(array(\"\\r\\n\", \"\\n\", \"\\r\"), \' \', $media->getValue(\'med_description\'));\r\n        $grid_content1 .= \'<img class=\"content\" src=\"index.php?rex_media_type=content&rex_media_file=REX_MEDIA[1]\" alt=\"\'.$mediatitle.\'\">\';\r\n    }\r\n}\r\nif (\'REX_VALUE[id=1 isset=1]\') {\r\n    $grid_content1 .= markitup::parseOutput(\'textile\', \'REX_VALUE[id=1 output=\"html\"]\');\r\n}\r\n\r\n// col2\r\nif (\"REX_MEDIA[2]\" != \'\') {\r\n	$media = rex_media::get(\"REX_MEDIA[2]\");\r\n    if ($media instanceof rex_media) {\r\n        $mediatitle = str_replace(array(\"\\r\\n\", \"\\n\", \"\\r\"), \' \', $media->getValue(\'med_description\'));\r\n        $grid_content2 .= \'<img class=\"content\" src=\"index.php?rex_media_type=content&rex_media_file=REX_MEDIA[2]\" alt=\"\'.$mediatitle.\'\">\';\r\n    }\r\n}\r\nif (\'REX_VALUE[id=2 isset=1]\') {\r\n    $grid_content2 .= markitup::parseOutput(\'textile\', \'REX_VALUE[id=2 output=\"html\"]\');\r\n}\r\n\r\n// col3\r\nif (\"REX_MEDIA[3]\" != \'\') {\r\n	$media = rex_media::get(\"REX_MEDIA[3]\");\r\n    if ($media instanceof rex_media) {\r\n        $mediatitle = str_replace(array(\"\\r\\n\", \"\\n\", \"\\r\"), \' \', $media->getValue(\'med_description\'));\r\n        $grid_content3 .= \'<img class=\"content\" src=\"index.php?rex_media_type=content&rex_media_file=REX_MEDIA[3]\" alt=\"\'.$mediatitle.\'\">\';\r\n    }\r\n}\r\nif (\'REX_VALUE[id=3 isset=1]\') {\r\n    $grid_content3 .= markitup::parseOutput(\'textile\', \'REX_VALUE[id=3 output=\"html\"]\');\r\n}\r\n?>\r\n<!-- SECTION -->\r\n<div class=\"<?php if ($this->getTemplateId() == 1) echo \'container clearfix \'; ?>pictext<?php if (\"REX_VALUE[19]\" != \'\') echo \" REX_VALUE[19]\"; ?>\">\r\n\r\n	<?php\r\n	if (\"REX_VALUE[10]\" != \'\') {\r\n		echo \'\r\n		<REX_VALUE[11]>REX_VALUE[10]</REX_VALUE[11]>\';\r\n	}\r\n	?>\r\n		<div class=\"row\">\r\n\r\n		<?php\r\n		// 2cols\r\n		if (\"REX_VALUE[9]\" == \'2\')  {\r\n			echo \'\r\n			<div class=\"col-md-6\">\r\n				\'.$grid_content1.\'\r\n			</div>\r\n			<div class=\"col-md-6\">\r\n				\'.$grid_content2.\'\r\n			</div>\';\r\n		// 3cols\r\n		} elseif (\"REX_VALUE[9]\" == \'3\')	 {\r\n			echo \'\r\n			<div class=\"col-sm-4\">\r\n				\'.$grid_content1.\'\r\n			</div>\r\n			<div class=\"col-sm-4\">\r\n				\'.$grid_content2.\'\r\n			</div>\r\n			<div class=\"col-sm-4\">\r\n				\'.$grid_content3.\'\r\n			</div>\';\r\n		// 1col\r\n		} else {\r\n			echo $grid_content1;\r\n		}\r\n		?>\r\n\r\n	</div>\r\n\r\n	<?php\r\n	if (\"REX_VALUE[18]\"== \'true\'){\r\n	echo \'\r\n	<div class=\"hline\"></div>\';\r\n	}\r\n	?>\r\n</div>\r\n','<!-- *******************************************************\r\nTEXT UND BILD IN SPALTEN\r\n******************************************************** -->\r\n\r\n<script type=\"text/javascript\">\r\njQuery(function($){\r\n	$(document).ready(function(){\r\n\r\n		$(\'select#choices\').change(function() {\r\n			$(\'.off\').hide();\r\n\r\n			for(var i = 1; i <= parseInt($(this).val()); i++) {\r\n				$(\'#col\' + i).show();\r\n			}\r\n		});\r\n\r\n		$(\'select#choices\').change();\r\n\r\n	})\r\n});\r\n</script>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"choices\">Spalten</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'1\'=>\'volle Breite\',\r\n				\'2\'=>\'zwei Spalten\',\r\n				\'3\'=>\'drei Spalten\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[9]\" id=\"choices\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[9]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[10]\" value=\"REX_VALUE[10]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline-level\">Überschrift-Ebene</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'h1\'=>\'1. Ebene\',\r\n				\'h2\'=>\'2. Ebene\',\r\n				\'h3\'=>\'3. Ebene\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[11]\" id=\"headline-level\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[11]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>1. Spalte</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Bild</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_MEDIA[id=\"1\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_textile_1\" name=\"REX_INPUT_VALUE[1]\">REX_VALUE[1]</textarea>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n\r\n<fieldset class=\"form-horizontal off\" id=\"col2\">\r\n    <legend>2. Spalte</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Bild</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_MEDIA[id=\"2\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_2\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_textile_2\" name=\"REX_INPUT_VALUE[2]\">REX_VALUE[2]</textarea>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal off\" id=\"col3\">\r\n    <legend>3. Spalte</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Bild</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_MEDIA[id=\"3\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_3\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-full\" id=\"markitup_textile_3\" name=\"REX_INPUT_VALUE[3]\">REX_VALUE[3]</textarea>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Abstände</legend>\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"line\">Trennlinie</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'nein\',\r\n				\'true\'=>\'ja\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[18]\" id=\"line\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[18]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-01 10:21:28','admin','2021-02-27 16:48:35','admin','',0),
-  (4,NULL,'04 . Drei Teaserkästen','<!-- *******************************************************\r\nDREI TEASERKÄSTEN\r\n******************************************************** -->\r\n\r\n<?php\r\n$template = ($this->getTemplateId() == 1) ? \' container\' : \'\';\r\n$distance = (\"REX_VALUE[19]\" != \'\') ? \' REX_VALUE[19]\' : \'\';\r\n$iconsize = (\"REX_VALUE[15]\" != \'\') ? \' REX_VALUE[15]\' : \'\';\r\n?>\r\n\r\n<section class=\"service clearfix\">\r\n	<div class=\"full<?php echo $template.$distance.$iconsize; ?>\">\r\n\r\n		<div class=\"row centered\">\r\n\r\n			<div class=\"col-md-4\">\r\n				<?php\r\n				if (\"REX_VALUE[2]\" != \'\') {\r\n					if (\"REX_VALUE[1]\" != \'\') {\r\n						echo \'\r\n						<i class=\"fa REX_VALUE[1]\"></i>\';\r\n					}\r\n					echo \'\r\n					<h4>REX_VALUE[2]</h4>\';\r\n				}\r\n\r\n				if (\'REX_VALUE[id=3 isset=1]\') {\r\n				    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=3 output=\"html\"]\');\r\n				}\r\n\r\n				if (\"REX_LINK[1]\" != \'\') {\r\n					$article = rex_article::get(\"REX_LINK[1]\");\r\n					if ($article) {\r\n                        $article_name = $article->getValue(\'name\');\r\n                        if (\"REX_VALUE[4]\" != \'\') {\r\n                            $article_name = \'REX_VALUE[4]\';\r\n                        }\r\n                        echo \'\r\n					    <p><br/><a href=\"\' . rex_getUrl(\"REX_LINK[1]\") . \'\" class=\"btn btn-theme\">\' . $article_name . \'</a></p>\';\r\n                    }\r\n				}\r\n				?>\r\n			</div>\r\n\r\n			<div class=\"col-md-4\">\r\n				<?php\r\n				if (\"REX_VALUE[6]\" != \'\') {\r\n					if (\"REX_VALUE[5]\" != \'\') {\r\n						echo \'\r\n						<i class=\"fa REX_VALUE[5]\"></i>\';\r\n					}\r\n					echo \'\r\n					<h4>REX_VALUE[6]</h4>\';\r\n				}\r\n\r\n				if (\'REX_VALUE[id=7 isset=1]\') {\r\n				    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=7 output=\"html\"]\');\r\n				}\r\n\r\n				if (\"REX_LINK[2]\" != \'\') {\r\n					$article = rex_article::get(\"REX_LINK[2]\");\r\n                    if ($article) {\r\n                        $article_name = $article->getValue(\'name\');\r\n                        if (\"REX_VALUE[8]\" != \'\') {\r\n                            $article_name = \'REX_VALUE[8]\';\r\n                        }\r\n                        echo \'\r\n                        <p><br/><a href=\"\' . rex_getUrl(\"REX_LINK[2]\") . \'\" class=\"btn btn-theme\">\' . $article_name . \'</a></p>\';\r\n                    }\r\n				}\r\n				?>\r\n			</div>\r\n\r\n			<div class=\"col-md-4\">\r\n				<?php\r\n				if (\"REX_VALUE[10]\" != \'\') {\r\n					if (\"REX_VALUE[9]\" != \'\') {\r\n						echo \'\r\n						<i class=\"fa REX_VALUE[9]\"></i>\';\r\n					}\r\n					echo \'\r\n					<h4>REX_VALUE[10]</h4>\';\r\n				}\r\n\r\n				if (\'REX_VALUE[id=11 isset=1]\') {\r\n				    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=11 output=\"html\"]\');\r\n				}\r\n\r\n				if (\"REX_LINK[3]\" != \'\') {\r\n					$article = rex_article::get(\"REX_LINK[3]\");\r\n                    if ($article) {\r\n                        $article_name = $article->getValue(\'name\');\r\n                        if (\"REX_VALUE[12]\" != \'\') {\r\n                            $article_name = \'REX_VALUE[12]\';\r\n                        }\r\n                        echo \'\r\n                        <p><br/><a href=\"\' . rex_getUrl(\"REX_LINK[3]\") . \'\" class=\"btn btn-theme\">\' . $article_name . \'</a></p>\';\r\n                    }\r\n				}\r\n				?>\r\n			</div>\r\n		</div>\r\n	</div><! --/container -->\r\n</section><! --/service -->\r\n','<!-- *******************************************************\r\nTEASERKÄSTEN\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Abstände</legend>\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Icon-Größe</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'klein\',\r\n				\'size2\'=>\'mittel\',\r\n				\'size3\'=>\'groß\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[15]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[15]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>1. Kasten</legend>\r\n\r\n    <div class=\"form-group\" style=\"overflow: visible;\">\r\n        <label class=\"col-sm-2 control-label\" for=\"icon1\">Icon</label>\r\n        <div class=\"col-sm-10\">\r\n            <input data-placement=\"bottomRight\" class=\"form-control icp\" id=\"icon1\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n\r\n			<br><section class=\"rex-page-section\">\r\n				<div class=\"panel panel-default\">\r\n\r\n					<header class=\"panel-heading collapsed\" data-toggle=\"collapse\" data-target=\"#collapse-REX_SLICE_ID\" aria-expanded=\"false\">\r\n						<div class=\"panel-title\"><i class=\"rex-icon rex-icon-info\"></i> Hinweis zur Eingabe der Icons</div>\r\n					</header>\r\n\r\n					<div id=\"collapse-REX_SLICE_ID\" class=\"panel-collapse collapse\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n\r\n						<div class=\"panel-body\" style=\"background: #f3f6fb;\">\r\n							<ul>\r\n								<li>Man kann hier Icons des Font-Zeichensatzes Font Awesome verwenden:<br>\r\n								<a href=\"https://fortawesome.github.io/Font-Awesome/icons/\" target=\"_blank\">https://fortawesome.github.io/Font-Awesome/icons/</a></li>\r\n								<li>Dazu bitte einfach den CSS-Klassennamne des gewünschten Icons eingeben.</li>\r\n								<li>Oder noch besser: Das <a href=\"index.php?page=install/packages/add&addonkey=iconpicker\">Iconpicker-AddOn</a> installieren! :-)</li>\r\n							</ul>\r\n						</div>\r\n					</div>\r\n				</div>\r\n			</section>\r\n\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline1\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline1\" type=\"text\" name=\"REX_INPUT_VALUE[2]\" value=\"REX_VALUE[2]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-full\" id=\"markitup_textile_1\" name=\"REX_INPUT_VALUE[3]\">REX_VALUE[3]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Link</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_LINK[id=\"1\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"linktext1\">Linktext</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"linktext1\" type=\"text\" name=\"REX_INPUT_VALUE[4]\" value=\"REX_VALUE[4]\" />\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>2. Kasten</legend>\r\n\r\n    <div class=\"form-group\" style=\"overflow: visible;\">\r\n        <label class=\"col-sm-2 control-label\" for=\"icon2\">Icon</label>\r\n        <div class=\"col-sm-10\">\r\n            <input data-placement=\"bottomRight\" class=\"form-control icp\" id=\"icon2\" type=\"text\" name=\"REX_INPUT_VALUE[5]\" value=\"REX_VALUE[5]\" />\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline2\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline2\" type=\"text\" name=\"REX_INPUT_VALUE[6]\" value=\"REX_VALUE[6]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_2\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-full\" id=\"markitup_textile_2\" name=\"REX_INPUT_VALUE[7]\">REX_VALUE[7]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Link</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_LINK[id=\"2\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"linktext2\">Linktext</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"linktext2\" type=\"text\" name=\"REX_INPUT_VALUE[8]\" value=\"REX_VALUE[8]\" />\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>3. Kasten</legend>\r\n\r\n    <div class=\"form-group\" style=\"overflow: visible;\">\r\n        <label class=\"col-sm-2 control-label\" for=\"icon3\">Icon</label>\r\n        <div class=\"col-sm-10\">\r\n            <input data-placement=\"bottomRight\" class=\"form-control icp\" id=\"icon3\" type=\"text\" name=\"REX_INPUT_VALUE[9]\" value=\"REX_VALUE[9]\" />\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline3\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline3\" type=\"text\" name=\"REX_INPUT_VALUE[10]\" value=\"REX_VALUE[10]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_3\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-full\" id=\"markitup_textile_3\" name=\"REX_INPUT_VALUE[11]\">REX_VALUE[11]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Link</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_LINK[id=\"3\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"linktext3\">Linktext</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"linktext3\" type=\"text\" name=\"REX_INPUT_VALUE[12]\" value=\"REX_VALUE[12]\" />\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Abstände</legend>\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n','2015-12-01 10:22:03','admin','2018-11-03 12:47:41','admin','',0),
+  (3,NULL,'03 . Text mit Bild (1 - 3 Spalten)','<?php\r\n$grid_content1 = \'\';\r\n$grid_content2 = \'\';\r\n$grid_content3 = \'\';\r\n\r\n// col1\r\nif (\"REX_MEDIA[1]\" != \'\') {\r\n	$media = rex_media::get(\"REX_MEDIA[1]\");\r\n	if ($media instanceof rex_media) {\r\n        $mediatitle = str_replace(array(\"\\r\\n\", \"\\n\", \"\\r\"), \' \', $media->getValue(\'med_description\'));\r\n        $grid_content1 .= \'<img class=\"content\" src=\"index.php?rex_media_type=content&rex_media_file=REX_MEDIA[1]\" alt=\"\'.$mediatitle.\'\">\';\r\n    }\r\n}\r\nif (\'REX_VALUE[id=1 isset=1]\') {\r\n    $grid_content1 .= markitup::parseOutput(\'textile\', \'REX_VALUE[id=1 output=\"html\"]\');\r\n}\r\n\r\n// col2\r\nif (\"REX_MEDIA[2]\" != \'\') {\r\n	$media = rex_media::get(\"REX_MEDIA[2]\");\r\n    if ($media instanceof rex_media) {\r\n        $mediatitle = str_replace(array(\"\\r\\n\", \"\\n\", \"\\r\"), \' \', $media->getValue(\'med_description\'));\r\n        $grid_content2 .= \'<img class=\"content\" src=\"index.php?rex_media_type=content&rex_media_file=REX_MEDIA[2]\" alt=\"\'.$mediatitle.\'\">\';\r\n    }\r\n}\r\nif (\'REX_VALUE[id=2 isset=1]\') {\r\n    $grid_content2 .= markitup::parseOutput(\'textile\', \'REX_VALUE[id=2 output=\"html\"]\');\r\n}\r\n\r\n// col3\r\nif (\"REX_MEDIA[3]\" != \'\') {\r\n	$media = rex_media::get(\"REX_MEDIA[3]\");\r\n    if ($media instanceof rex_media) {\r\n        $mediatitle = str_replace(array(\"\\r\\n\", \"\\n\", \"\\r\"), \' \', $media->getValue(\'med_description\'));\r\n        $grid_content3 .= \'<img class=\"content\" src=\"index.php?rex_media_type=content&rex_media_file=REX_MEDIA[3]\" alt=\"\'.$mediatitle.\'\">\';\r\n    }\r\n}\r\nif (\'REX_VALUE[id=3 isset=1]\') {\r\n    $grid_content3 .= markitup::parseOutput(\'textile\', \'REX_VALUE[id=3 output=\"html\"]\');\r\n}\r\n?>\r\n<!-- SECTION -->\r\n<div class=\"<?php if ($this->getTemplateId() == 1) echo \'container clearfix \'; ?>pictext<?php if (\"REX_VALUE[19]\" != \'\') echo \" REX_VALUE[19]\"; ?>\">\r\n\r\n	<?php\r\n	if (\"REX_VALUE[10]\" != \'\') {\r\n		echo \'\r\n		<REX_VALUE[11]>REX_VALUE[10]</REX_VALUE[11]>\';\r\n	}\r\n	?>\r\n		<div class=\"row\">\r\n\r\n		<?php\r\n		// 2cols\r\n		if (\"REX_VALUE[9]\" == \'2\')  {\r\n			echo \'\r\n			<div class=\"col-md-6\">\r\n				\'.$grid_content1.\'\r\n			</div>\r\n			<div class=\"col-md-6\">\r\n				\'.$grid_content2.\'\r\n			</div>\';\r\n		// 3cols\r\n		} elseif (\"REX_VALUE[9]\" == \'3\')	 {\r\n			echo \'\r\n			<div class=\"col-sm-4\">\r\n				\'.$grid_content1.\'\r\n			</div>\r\n			<div class=\"col-sm-4\">\r\n				\'.$grid_content2.\'\r\n			</div>\r\n			<div class=\"col-sm-4\">\r\n				\'.$grid_content3.\'\r\n			</div>\';\r\n		// 1col\r\n		} else {\r\n			echo $grid_content1;\r\n		}\r\n		?>\r\n\r\n	</div>\r\n\r\n	<?php\r\n	if (\"REX_VALUE[18]\"== \'true\'){\r\n	echo \'\r\n	<div class=\"hline\"></div>\';\r\n	}\r\n	?>\r\n</div>\r\n','<!-- *******************************************************\r\nTEXT UND BILD IN SPALTEN\r\n******************************************************** -->\r\n\r\n<script type=\"text/javascript\">\r\njQuery(function($){\r\n	$(document).ready(function(){\r\n\r\n		$(\'select#choices\').change(function() {\r\n			$(\'.off\').hide();\r\n\r\n			for(var i = 1; i <= parseInt($(this).val()); i++) {\r\n				$(\'#col\' + i).show();\r\n			}\r\n		});\r\n\r\n		$(\'select#choices\').change();\r\n\r\n	})\r\n});\r\n</script>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"choices\">Spalten</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'1\'=>\'volle Breite\',\r\n				\'2\'=>\'zwei Spalten\',\r\n				\'3\'=>\'drei Spalten\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[9]\" id=\"choices\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[9]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[10]\" value=\"REX_VALUE[10]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline-level\">Überschrift-Ebene</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'h1\'=>\'1. Ebene\',\r\n				\'h2\'=>\'2. Ebene\',\r\n				\'h3\'=>\'3. Ebene\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[11]\" id=\"headline-level\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[11]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>1. Spalte</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Bild</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_MEDIA[id=\"1\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_textile_1\" name=\"REX_INPUT_VALUE[1]\">REX_VALUE[1]</textarea>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n\r\n<fieldset class=\"form-horizontal off\" id=\"col2\">\r\n    <legend>2. Spalte</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Bild</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_MEDIA[id=\"2\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_2\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_textile_2\" name=\"REX_INPUT_VALUE[2]\">REX_VALUE[2]</textarea>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal off\" id=\"col3\">\r\n    <legend>3. Spalte</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Bild</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_MEDIA[id=\"3\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_3\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-markdown_full\" id=\"markitup_textile_3\" name=\"REX_INPUT_VALUE[3]\">REX_VALUE[3]</textarea>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Abstände</legend>\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"line\">Trennlinie</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'nein\',\r\n				\'true\'=>\'ja\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[18]\" id=\"line\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[18]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-01 10:21:28','admin','2021-02-27 16:48:35','admin','',0),
+  (4,NULL,'04 . Drei Teaserkästen','<!-- *******************************************************\r\nDREI TEASERKÄSTEN\r\n******************************************************** -->\r\n\r\n<?php\r\n$template = ($this->getTemplateId() == 1) ? \' container\' : \'\';\r\n$distance = (\"REX_VALUE[19]\" != \'\') ? \' REX_VALUE[19]\' : \'\';\r\n$iconsize = (\"REX_VALUE[15]\" != \'\') ? \' REX_VALUE[15]\' : \'\';\r\n?>\r\n\r\n<section class=\"service clearfix\">\r\n	<div class=\"full<?php echo $template.$distance.$iconsize; ?>\">\r\n\r\n		<div class=\"row centered\">\r\n\r\n			<div class=\"col-md-4\">\r\n				<?php\r\n				if (\"REX_VALUE[2]\" != \'\') {\r\n					if (\"REX_VALUE[1]\" != \'\') {\r\n						echo \'\r\n						<i class=\"fa REX_VALUE[1]\"></i>\';\r\n					}\r\n					echo \'\r\n					<h4>REX_VALUE[2]</h4>\';\r\n				}\r\n\r\n				if (\'REX_VALUE[id=3 isset=1]\') {\r\n				    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=3 output=\"html\"]\');\r\n				}\r\n\r\n				if (\"REX_LINK[1]\" != \'\') {\r\n					$article = rex_article::get(\"REX_LINK[1]\");\r\n					if ($article) {\r\n                        $article_name = $article->getValue(\'name\');\r\n                        if (\"REX_VALUE[4]\" != \'\') {\r\n                            $article_name = \'REX_VALUE[4]\';\r\n                        }\r\n                        echo \'\r\n					    <p><br/><a href=\"\' . rex_getUrl(\"REX_LINK[1]\") . \'\" class=\"btn btn-theme\">\' . $article_name . \'</a></p>\';\r\n                    }\r\n				}\r\n				?>\r\n			</div>\r\n\r\n			<div class=\"col-md-4\">\r\n				<?php\r\n				if (\"REX_VALUE[6]\" != \'\') {\r\n					if (\"REX_VALUE[5]\" != \'\') {\r\n						echo \'\r\n						<i class=\"fa REX_VALUE[5]\"></i>\';\r\n					}\r\n					echo \'\r\n					<h4>REX_VALUE[6]</h4>\';\r\n				}\r\n\r\n				if (\'REX_VALUE[id=7 isset=1]\') {\r\n				    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=7 output=\"html\"]\');\r\n				}\r\n\r\n				if (\"REX_LINK[2]\" != \'\') {\r\n					$article = rex_article::get(\"REX_LINK[2]\");\r\n                    if ($article) {\r\n                        $article_name = $article->getValue(\'name\');\r\n                        if (\"REX_VALUE[8]\" != \'\') {\r\n                            $article_name = \'REX_VALUE[8]\';\r\n                        }\r\n                        echo \'\r\n                        <p><br/><a href=\"\' . rex_getUrl(\"REX_LINK[2]\") . \'\" class=\"btn btn-theme\">\' . $article_name . \'</a></p>\';\r\n                    }\r\n				}\r\n				?>\r\n			</div>\r\n\r\n			<div class=\"col-md-4\">\r\n				<?php\r\n				if (\"REX_VALUE[10]\" != \'\') {\r\n					if (\"REX_VALUE[9]\" != \'\') {\r\n						echo \'\r\n						<i class=\"fa REX_VALUE[9]\"></i>\';\r\n					}\r\n					echo \'\r\n					<h4>REX_VALUE[10]</h4>\';\r\n				}\r\n\r\n				if (\'REX_VALUE[id=11 isset=1]\') {\r\n				    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=11 output=\"html\"]\');\r\n				}\r\n\r\n				if (\"REX_LINK[3]\" != \'\') {\r\n					$article = rex_article::get(\"REX_LINK[3]\");\r\n                    if ($article) {\r\n                        $article_name = $article->getValue(\'name\');\r\n                        if (\"REX_VALUE[12]\" != \'\') {\r\n                            $article_name = \'REX_VALUE[12]\';\r\n                        }\r\n                        echo \'\r\n                        <p><br/><a href=\"\' . rex_getUrl(\"REX_LINK[3]\") . \'\" class=\"btn btn-theme\">\' . $article_name . \'</a></p>\';\r\n                    }\r\n				}\r\n				?>\r\n			</div>\r\n		</div>\r\n	</div><! --/container -->\r\n</section><! --/service -->\r\n','<!-- *******************************************************\r\nTEASERKÄSTEN\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Abstände</legend>\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Icon-Größe</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'klein\',\r\n				\'size2\'=>\'mittel\',\r\n				\'size3\'=>\'groß\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[15]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[15]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>1. Kasten</legend>\r\n\r\n    <div class=\"form-group\" style=\"overflow: visible;\">\r\n        <label class=\"col-sm-2 control-label\" for=\"icon1\">Icon</label>\r\n        <div class=\"col-sm-10\">\r\n            <input data-placement=\"bottomRight\" class=\"form-control icp\" id=\"icon1\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n\r\n			<br><section class=\"rex-page-section\">\r\n				<div class=\"panel panel-default\">\r\n\r\n					<header class=\"panel-heading collapsed\" data-toggle=\"collapse\" data-target=\"#collapse-REX_SLICE_ID\" aria-expanded=\"false\">\r\n						<div class=\"panel-title\"><i class=\"rex-icon rex-icon-info\"></i> Hinweis zur Eingabe der Icons</div>\r\n					</header>\r\n\r\n					<div id=\"collapse-REX_SLICE_ID\" class=\"panel-collapse collapse\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n\r\n						<div class=\"panel-body\" style=\"background: #f3f6fb;\">\r\n							<ul>\r\n								<li>Man kann hier Icons des Font-Zeichensatzes Font Awesome verwenden:<br>\r\n								<a href=\"https://fortawesome.github.io/Font-Awesome/icons/\" target=\"_blank\">https://fortawesome.github.io/Font-Awesome/icons/</a></li>\r\n								<li>Dazu bitte einfach den CSS-Klassennamne des gewünschten Icons eingeben.</li>\r\n								<li>Oder noch besser: Das <a href=\"index.php?page=install/packages/add&addonkey=iconpicker\">Iconpicker-AddOn</a> installieren! :-)</li>\r\n							</ul>\r\n						</div>\r\n					</div>\r\n				</div>\r\n			</section>\r\n\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline1\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline1\" type=\"text\" name=\"REX_INPUT_VALUE[2]\" value=\"REX_VALUE[2]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-markdown_full\" id=\"markitup_textile_1\" name=\"REX_INPUT_VALUE[3]\">REX_VALUE[3]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Link</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_LINK[id=\"1\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"linktext1\">Linktext</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"linktext1\" type=\"text\" name=\"REX_INPUT_VALUE[4]\" value=\"REX_VALUE[4]\" />\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>2. Kasten</legend>\r\n\r\n    <div class=\"form-group\" style=\"overflow: visible;\">\r\n        <label class=\"col-sm-2 control-label\" for=\"icon2\">Icon</label>\r\n        <div class=\"col-sm-10\">\r\n            <input data-placement=\"bottomRight\" class=\"form-control icp\" id=\"icon2\" type=\"text\" name=\"REX_INPUT_VALUE[5]\" value=\"REX_VALUE[5]\" />\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline2\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline2\" type=\"text\" name=\"REX_INPUT_VALUE[6]\" value=\"REX_VALUE[6]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_2\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-markdown_full\" id=\"markitup_textile_2\" name=\"REX_INPUT_VALUE[7]\">REX_VALUE[7]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Link</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_LINK[id=\"2\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"linktext2\">Linktext</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"linktext2\" type=\"text\" name=\"REX_INPUT_VALUE[8]\" value=\"REX_VALUE[8]\" />\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>3. Kasten</legend>\r\n\r\n    <div class=\"form-group\" style=\"overflow: visible;\">\r\n        <label class=\"col-sm-2 control-label\" for=\"icon3\">Icon</label>\r\n        <div class=\"col-sm-10\">\r\n            <input data-placement=\"bottomRight\" class=\"form-control icp\" id=\"icon3\" type=\"text\" name=\"REX_INPUT_VALUE[9]\" value=\"REX_VALUE[9]\" />\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline3\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline3\" type=\"text\" name=\"REX_INPUT_VALUE[10]\" value=\"REX_VALUE[10]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_3\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-markdown_full\" id=\"markitup_textile_3\" name=\"REX_INPUT_VALUE[11]\">REX_VALUE[11]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Link</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_LINK[id=\"3\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"linktext3\">Linktext</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"linktext3\" type=\"text\" name=\"REX_INPUT_VALUE[12]\" value=\"REX_VALUE[12]\" />\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Abstände</legend>\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n</fieldset>\r\n','2015-12-01 10:22:03','admin','2018-11-03 12:47:41','admin','',0),
   (5,NULL,'05 . Zitat (auf Bild)','<!-- *******************************************************\r\nQUOTE\r\n******************************************************** -->\r\n<?php\r\n$bg = (\"REX_MEDIA[1]\" != \'\') ? \' style=\"background-image: url(index.php?rex_media_type=full&rex_media_file=REX_MEDIA[1])\"\' : \'\';\r\n?>\r\n\r\n<div class=\"fullpicture parallax clearfix\"<?php echo $bg; ?>>\r\n	<div class=\"layer\"></div>\r\n		<?php\r\n		if ($this->getTemplateId() == 1) {\r\n			echo \'\r\n			<div class=\"container centered\">\';\r\n		} else {\r\n			echo \'\r\n			<div class=\"centered\">\';\r\n		}\r\n		?>\r\n		<div class=\"row\">\r\n			<div class=\"col-lg-8 col-lg-offset-2\">\r\n				<i class=\"fa fa-comment-o\"></i>\r\n				<?php\r\n				if (\'REX_VALUE[id=1 isset=1]\') {\r\n				    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=1 output=\"html\"]\');\r\n				}\r\n				?>\r\n				REX_VALUE[id=\'2\' prefix=\'<h4><br>\' suffix=\'</h4>\']\r\n			</div>\r\n		</div><! --/row -->\r\n	</div><! --/container -->\r\n</div><! --/twrap -->\r\n','<!-- *******************************************************\r\nZITAT AUF BILD\r\n******************************************************** -->\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Titel / Intro</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Bild (ca. 2000px breit)</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_MEDIA[id=\"1\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_textile_1\" name=\"REX_INPUT_VALUE[1]\">REX_VALUE[1]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"person\">Zitierte Person</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"person\" type=\"text\" name=\"REX_INPUT_VALUE[2]\" value=\"REX_VALUE[2]\" />\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-01 10:22:33','admin','2016-10-18 15:50:15','decaf','',0),
   (6,NULL,'06 . Galerie','<?php\r\n$fe = \'\';\r\n$be = \'\';\r\n\r\nif (\"REX_MEDIALIST[1]\" != \'\') {\r\n	$imagelist = explode(\',\', \"REX_MEDIALIST[1]\");\r\n\r\n	// Rahmen?\r\n	$frame = (\"REX_VALUE[5]\" != \'\') ? \"REX_VALUE[5]\" : \'framed\';\r\n\r\n	// Abstand?\r\n	$padding = (\"REX_VALUE[19]\" != \'\') ? \" REX_VALUE[19]\" : \'\';\r\n\r\n	// Volle Breite?\r\n	$full = (\"REX_VALUE[1]\" == \'full\') ? \' full \' : \' container \';\r\n	// Im Mehrspalten-Template keine volle Breite erlauben\r\n	if ($this->getTemplateId() != 1) { $full = \'\'; }\r\n\r\n	// Language suffix\r\n  $languageSuffix = \'\';\r\n  if (rex_clang::getCurrentId() == 2) {\r\n      $languageSuffix = \'_en\';\r\n  }\r\n\r\n	$fe .= \'\r\n	<section id=\"portfoliowrap\" class=\"clearfix\'.$full.$frame.$padding.\'\">\';\r\n\r\n		if (\"REX_VALUE[2]\" != \'\') {\r\n			$fe .= \'\r\n			<REX_VALUE[3]>REX_VALUE[2]</REX_VALUE[3]>\';\r\n			$be .= \'\r\n			<REX_VALUE[3]>REX_VALUE[2]</REX_VALUE[3]>\';\r\n		}\r\n\r\n		$fe .= \'\r\n		<div class=\"portfolio row\">\';\r\n\r\n				foreach ($imagelist as $file) {\r\n					$media = rex_media::get($file);\r\n					if ($media instanceof rex_media) {\r\n\r\n						$mediatitle = $media->getValue(\'title\');\r\n						$mediadesc = str_replace(array(\"\\r\\n\", \"\\n\", \"\\r\"), \' \', $media->getValue(\'med_description\' . $languageSuffix));\r\n						$medialink = $media->getValue(\'med_gallery_link\');\r\n\r\n						$fe .= \'\r\n						<div class=\"col-md-3 portfolio-item\">\r\n							<div class=\"he-wrap pic\">\r\n								<img src=\"index.php?rex_media_type=photos&rex_media_file=\'.$file.\'\" alt=\"\'.$mediadesc.\'\">\r\n								<div class=\"he-view\">\r\n									<div class=\"bg a0\" data-animate=\"fadeIn\">\';\r\n\r\n										if ($mediadesc != \'\' && $this->getTemplateId() == 1) {\r\n											// Nur im Einspalter Bildtexte anzeoigen, da Bilder ansonsten zu klein\r\n											$fe .= \'\r\n											   <h3 class=\"a1\" data-animate=\"fadeInDown\">\'.$mediadesc.\'</h3>\';\r\n										}\r\n\r\n										$fe .= \'\r\n										<a rel=\"prettyPhoto[galREX_SLICE_ID]\" href=\"index.php?rex_media_type=full&rex_media_file=\'.$file.\'\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>\';\r\n\r\n										if ($medialink != \'\') {\r\n											$fe .= \'\r\n											<a href=\"\'.$medialink.\'\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>\';\r\n										}\r\n\r\n									  $fe .= \'\r\n								  	</div><!-- he bg -->\r\n								</div><!-- he view -->\r\n							</div><!-- he wrap -->\r\n						</div><!-- end col-12 -->\';\r\n\r\n						$be .= \'\r\n						<img src=\"index.php?rex_media_type=rex_media_medium&rex_media_file=\'.$file.\'\" alt=\"\'.$mediadesc.\'\">\';\r\n\r\n					}\r\n				}\r\n\r\n			$fe .= \'\r\n		</div><!-- portfolio -->\r\n	</section><!--/Portfoliowrap -->\';\r\n\r\n}\r\n\r\n// Different output for frontend and backend\r\nif (rex::isBackend()) {\r\n	echo $be;\r\n} else {\r\n	echo $fe;\r\n}\r\n?>','<!-- *******************************************************\r\nGALERIE\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Galerie</legend>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[2]\" value=\"REX_VALUE[2]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline-level\">Überschrift-Ebene</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'h2\'=>\'2. Ebene\',\r\n				\'h3\'=>\'3. Ebene\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[3]\" id=\"headline-level\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[3]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Bilder</label>\r\n		<div class=\"col-sm-10\">\r\n            REX_MEDIALIST[id=\"1\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n	<?php\r\n	// Im Mehrspalten-Template keine volle Breite erlauben\r\n	if ($this->getTemplateId() == 1) {\r\n	?>\r\n		<div class=\"form-group\">\r\n	        <label class=\"col-sm-2 control-label\" for=\"width\">Breite</label>\r\n	        <div class=\"col-sm-10\">\r\n				<?php\r\n					$options = array(\r\n					\'\'=>\'Contentbreite\',\r\n					\'full\'=>\'volle Beite\'\r\n				);\r\n				?>\r\n				<select name=\"REX_INPUT_VALUE[1]\" id=\"width\" class=\"form-control\">\r\n				<?php foreach ($options as $k=>$v) : ?>\r\n				<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[1]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n				<?php endforeach ?>\r\n				</select>\r\n	        </div>\r\n	    </div>\r\n	<?php } ?>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"width\">Rahmen</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'Rahmen zwischen Bildern\',\r\n				\'frameless\'=>\'ohne Rahmen\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[5]\" id=\"width\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[5]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n\r\n<p>Bilder in der Medienkategorie \"Fotos\" (ID 1) haben ein zusätzliches Linkfeld.</p>\r\n','2015-12-01 10:23:20','admin','2022-01-04 11:19:15','admin','',0),
   (7,NULL,'07 . Akkordeon / Tabs (Eingabe)','<?php\r\nif (!isset($counter)) {\r\n	$counter = 0;\r\n}\r\n$counter++;\r\n\r\n// Write data in an array for Frontend, but do not show them\r\nif (! rex::isBackend()) {\r\n	$items = array();\r\n	$items = [\'title\' => \'REX_VALUE[2]\', \'text\' => \'REX_VALUE[1]\'];\r\n	rex::getProperty(\'tabs\')->append($items);\r\n// Im Backend wird der Inhalt als Info für den Redakteur angezeigt\r\n} else {\r\n	if (\'REX_VALUE[id=2 isset=1]\') {\r\n	    echo \'<h2>REX_VALUE[2]</h2>\';\r\n	}\r\n	if (\'REX_VALUE[id=1 isset=1]\') {\r\n	    echo \'<p>REX_VALUE[1]</p>\';\r\n	}\r\n}\r\n?>\r\n','<!-- *******************************************************\r\nTABS EINGABE\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Tabs Eingabe</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[2]\" value=\"REX_VALUE[2]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_textile_\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_textile_1\" name=\"REX_INPUT_VALUE[1]\">REX_VALUE[1]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-01 10:23:53','admin','2016-06-02 12:30:53','admin','',0),
@@ -665,7 +644,7 @@ INSERT INTO `rex_module` VALUES
   (10,NULL,'11 . Code','<!-- *******************************************************\r\nCODE\r\n******************************************************** -->\r\n<div class=\"<?php if ($this->getTemplateId() == 1) echo \'container clearfix \'; ?>full<?php if (\"REX_VALUE[19]\" != \'\') echo \" REX_VALUE[19]\"; ?>\">\r\n<pre class=\"prettyprint lnaghtml linenums\">\r\nREX_VALUE[1]\r\n</pre>\r\n</div>\r\n','<!-- *******************************************************\r\nCODE\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Code</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"code\">Code</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"10\" class=\"form-control rex-code\" id=\"code\" name=\"REX_INPUT_VALUE[1]\">REX_VALUE[1]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-01 10:25:30','admin','2016-03-19 12:40:37','admin','',0),
   (11,NULL,'12 . Text Seitenspalte','<div class=\"sicetext<?php if (\"REX_VALUE[19]\" != \'\') echo \" REX_VALUE[19]\"; ?>\">\r\n\r\n	<?php\r\n	if (\"REX_VALUE[1]\" != \'\') {\r\n		echo \'\r\n		<REX_VALUE[2]>REX_VALUE[1]</REX_VALUE[2]>\';\r\n	}\r\n\r\n	if (\'REX_VALUE[id=3 isset=1]\') {\r\n	    $textile = markitup::parseOutput(\'textile\', \'REX_VALUE[id=3 output=\"html\"]\');\r\n	    echo str_replace(array(\'<b>\', \'</b>\'), array(\'<span class=\"label label-primary\">\', \'</span>\'), $textile);\r\n	}\r\n\r\n	if (\"REX_VALUE[18]\"== \'true\'){\r\n		echo \'\r\n		<div class=\"hline\"></div>\';\r\n	}\r\n\r\n	?>\r\n</div>\r\n\r\n<div class=\"spacing\"></div>\r\n','<!-- *******************************************************\r\nTEXT\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Text</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline-level\">Überschrift-Ebene</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'h2\'=>\'2. Ebene\',\r\n				\'h3\'=>\'3. Ebene\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[2]\" id=\"headline-level\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[2]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-textile_full\" id=\"markitup_1\" name=\"REX_INPUT_VALUE[3]\">REX_VALUE[3]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">vertikaler Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"line\">Trennlinie</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'nein\',\r\n				\'true\'=>\'ja\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[18]\" id=\"line\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[18]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-01 10:26:10','admin','2016-10-18 15:50:15','decaf','',0),
   (12,NULL,'30 . PHP','REX_VALUE[id=1 output=php]','<!-- *******************************************************\r\nPHP\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>PHP</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <div class=\"col-sm-12\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control\" name=\"REX_INPUT_VALUE[1]\">REX_VALUE[1]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>','2015-12-01 10:26:37','admin','2017-09-20 10:59:04','admin','',0),
-  (13,NULL,'15 . Footer Text','<div class=\"col-md-4\">\r\n	<?php\r\n	if (\'REX_VALUE[id=1 isset=1]\') {\r\n		echo \'\r\n		<h4>REX_VALUE[1]</h4>\r\n		<div class=\"hline-w\"></div>\';\r\n	}\r\n\r\n	if (\'REX_VALUE[id=2 isset=1]\') {\r\n	    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=2 output=\"html\"]\');\r\n	}\r\n	?>\r\n</div>\r\n','<!-- *******************************************************\r\nFOOTER TEXTSPALTE\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Text</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-full\" id=\"markitup_1\" name=\"REX_INPUT_VALUE[2]\">REX_VALUE[2]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-14 10:15:16','admin','2016-10-18 15:50:15','decaf','',0),
+  (13,NULL,'15 . Footer Text','<div class=\"col-md-4\">\r\n	<?php\r\n	if (\'REX_VALUE[id=1 isset=1]\') {\r\n		echo \'\r\n		<h4>REX_VALUE[1]</h4>\r\n		<div class=\"hline-w\"></div>\';\r\n	}\r\n\r\n	if (\'REX_VALUE[id=2 isset=1]\') {\r\n	    echo markitup::parseOutput(\'textile\', \'REX_VALUE[id=2 output=\"html\"]\');\r\n	}\r\n	?>\r\n</div>\r\n','<!-- *******************************************************\r\nFOOTER TEXTSPALTE\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Text</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"markitup_1\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea cols=\"1\" rows=\"6\" class=\"form-control markitupEditor-markdown_full\" id=\"markitup_1\" name=\"REX_INPUT_VALUE[2]\">REX_VALUE[2]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-14 10:15:16','admin','2016-10-18 15:50:15','decaf','',0),
   (14,NULL,'16 . Footer Social Links','<div class=\"col-md-4\">\r\n	<?php\r\n	if (\'REX_VALUE[id=1 isset=1]\') {\r\n		echo \'\r\n		<h4>REX_VALUE[1]</h4>\r\n		<div class=\"hline-w\"></div>\';\r\n	}\r\n\r\n	echo \'\r\n	<p class=\"social-links\">\';\r\n\r\n	if (\'REX_VALUE[id=2 isset=1]\') {\r\n		echo \'\r\n		<p class=\"social-links\">\r\n			<a href=\"REX_VALUE[2]\"><i class=\"fa fa-fw fa-facebook\"></i> Facebook</a>\r\n		</p>\';\r\n	}\r\n\r\n	if (\'REX_VALUE[id=3 isset=1]\') {\r\n		echo \'\r\n		<p class=\"social-links\">\r\n			<a href=\"REX_VALUE[3]\"><i class=\"fa fa-fw fa-twitter\"></i> Twitter</a>\r\n		</p>\';\r\n	}\r\n\r\n    if (\'REX_VALUE[id=4 isset=1]\') {\r\n        echo \'\r\n		<p class=\"social-links\">\r\n			<a href=\"REX_VALUE[4]\"><i class=\"fa fa-fw fa-github\"></i> GitHub</a>\r\n		</p>\';\r\n    }\r\n\r\n	echo \'\r\n	</p>\';\r\n	?>\r\n</div>\r\n','<!-- *******************************************************\r\nFOOTER SOCIAL LINKS\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Text</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"facebook\">Facebook-Link</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"facebook\" type=\"text\" name=\"REX_INPUT_VALUE[2]\" value=\"REX_VALUE[2]\" />\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"twitter\">Twitter-Link</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"twitter\" type=\"text\" name=\"REX_INPUT_VALUE[3]\" value=\"REX_VALUE[3]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"twitter\">GitHub-Link</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"github\" type=\"text\" name=\"REX_INPUT_VALUE[4]\" value=\"REX_VALUE[4]\" />\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-14 10:15:33','admin','2017-08-17 17:20:02','admin','',0),
   (15,NULL,'17 . Footer Links','<div class=\"col-md-4\">\r\n	<?php\r\n	if (\'REX_VALUE[id=1 isset=1]\') {\r\n		echo \'\r\n		<h4>REX_VALUE[1]</h4>\r\n		<div class=\"hline-w\"></div>\';\r\n	}\r\n\r\n	if (\'REX_LINKLIST[1]\' != \'\') {\r\n		echo \'<ul>\';\r\n		$linklist = explode(\',\',\'REX_LINKLIST[1]\');\r\n		foreach ($linklist as $link) {\r\n			$art = rex_article::get($link);\r\n			if ($art instanceof rex_article) {\r\n\r\n                $class = \"\";\r\n                if(rex_article::getCurrentId() == $art->getId())\r\n                    $class = \' class=\"active\"\';\r\n\r\n				$art_name = $art->getValue(\'name\');\r\n				echo \'\r\n				<li\'.$class.\'><a href=\"\'.rex_getUrl($link).\'\">\'.$art_name.\'</a></li>\';\r\n			}\r\n		}\r\n		echo \'</ul>\';\r\n	}\r\n	?>\r\n</div>\r\n','<!-- *******************************************************\r\nFOOTER LINKLISTE\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Text</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\">Links</label>\r\n        <div class=\"col-sm-10\">\r\n            REX_LINKLIST[id=\"1\" widget=\"1\"]\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-14 10:15:46','admin','2017-08-18 11:25:49','admin','',0),
   (16,NULL,'02b . Text (Redactor)','<?php\r\n$template = ($this->getTemplateId() == 1) ? \' container\' : \'\';\r\n$distance = (\"REX_VALUE[19]\" != \'\') ? \' REX_VALUE[19]\' : \'\';\r\n$background = (\"REX_VALUE[16]\" == \'true\') ? \' grey\' : \'\';\r\n\r\necho \'\r\n<section class=\"module-wrapper clearfix\'.$background.\'\">\r\n<div class=\"full\'.$template.$distance.\'\">\';\r\n\r\n	// Linker und recter Einzug?\r\n	if (\"REX_VALUE[17]\" == \'vd\') {\r\n		echo \'\r\n		<div class=\"row\">\r\n		<div class=\"col-md-8 col-md-offset-2\">\';\r\n	}\r\n\r\n	if (\"REX_VALUE[1]\" != \'\') {\r\n		echo \'\r\n		<REX_VALUE[2]>REX_VALUE[1]</REX_VALUE[2]>\';\r\n	}\r\n\r\n	if (\'REX_VALUE[id=3 isset=1]\') {\r\n	    echo \"REX_VALUE[id=3 output=html]\";\r\n	}\r\n\r\n	// Trennlinie?\r\n	if (\"REX_VALUE[18]\"== \'true\'){\r\n		echo \'\r\n		<div class=\"hline\"></div>\';\r\n	}\r\n\r\n	if (\"REX_VALUE[17]\" == \'vd\') {\r\n		echo \'\r\n		</div>\r\n		</div>\';\r\n	}\r\n	?>\r\n</div>\r\n</section>\r\n','<!-- *******************************************************\r\nTEXT\r\n******************************************************** -->\r\n\r\n<fieldset class=\"form-horizontal\">\r\n    <legend>Text</legend>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline\">Überschrift</label>\r\n        <div class=\"col-sm-10\">\r\n            <input class=\"form-control\" id=\"headline\" type=\"text\" name=\"REX_INPUT_VALUE[1]\" value=\"REX_VALUE[1]\" />\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"headline-level\">Überschrift-Ebene</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'h2\'=>\'2. Ebene\',\r\n				\'h3\'=>\'3. Ebene\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[2]\" id=\"headline-level\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[2]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"redactor\">Text</label>\r\n        <div class=\"col-sm-10\">\r\n            <textarea class=\"form-control redactor-editor--demo\" name=\"REX_INPUT_VALUE[3]\">REX_VALUE[3]</textarea>\r\n        </div>\r\n    </div>\r\n\r\n	<div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"padding\">Einrückung</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keine\',\r\n				\'vd\'=>\'ja\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[17]\" id=\"padding\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[17]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n\r\n			<br><section class=\"rex-page-section\">\r\n			    <div class=\"panel panel-default\">\r\n\r\n			        <header class=\"panel-heading collapsed\" data-toggle=\"collapse\" data-target=\"#collapse-REX_SLICE_ID\" aria-expanded=\"false\">\r\n						<div class=\"panel-title\"><i class=\"rex-icon rex-icon-info\"></i> Hinweis</div>\r\n					</header>\r\n\r\n			        <div id=\"collapse-REX_SLICE_ID\" class=\"panel-collapse collapse\" aria-expanded=\"false\" style=\"height: 0px;\">\r\n\r\n			            <div class=\"panel-body\" style=\"background: #f3f6fb;\">\r\n			                <ul>\r\n								<li>Hier kann man eine linke und rechte Einrückung von je zwei Spalten des 12er-Bootstrap-Rasters aktivieren.</li>\r\n								<li>Der vertikale Abstand erzeugt einen oberen und unteren Zwischenraum von jeweils 60px.</li>\r\n							</ul>\r\n						</div>\r\n			        </div>\r\n			    </div>\r\n			</section>\r\n\r\n		</div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"distance\">vertikaler Abstand</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'keiner\',\r\n				\'mt\'=>\'oberhalb\',\r\n				\'mb\'=>\'unterhalb\',\r\n				\'mtb\'=>\'ober- und unterhalb\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[19]\" id=\"distance\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[19]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"line\">Trennlinie</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'nein\',\r\n				\'true\'=>\'ja\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[18]\" id=\"line\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[18]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n        <label class=\"col-sm-2 control-label\" for=\"line\">Hintergrund</label>\r\n        <div class=\"col-sm-10\">\r\n			<?php\r\n				$options = array(\r\n				\'\'=>\'weiß\',\r\n				\'true\'=>\'grau\'\r\n			);\r\n			?>\r\n			<select name=\"REX_INPUT_VALUE[16]\" id=\"line\" class=\"form-control\">\r\n			<?php foreach ($options as $k=>$v) : ?>\r\n			<option value=\"<?php echo $k; ?>\"<?php if ($k == \"REX_VALUE[16]\") echo \' selected=\"selected\"\' ?>><?php echo $v; ?></option>\r\n			<?php endforeach ?>\r\n			</select>\r\n        </div>\r\n    </div>\r\n\r\n</fieldset>\r\n','2015-12-18 09:40:51','admin','2022-01-04 12:26:12','admin','',0),
@@ -674,27 +653,19 @@ INSERT INTO `rex_module` VALUES
 /*!40000 ALTER TABLE `rex_module` ENABLE KEYS */;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `rex_module_action`;
-CREATE TABLE `rex_module_action` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `module_id` int unsigned NOT NULL,
-  `action_id` int unsigned NOT NULL,
-  `revision` int unsigned NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 DROP TABLE IF EXISTS `rex_redactor_profile`;
 CREATE TABLE `rex_redactor_profile` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `min_height` int NOT NULL,
-  `max_height` int NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `min_height` int(5) NOT NULL,
+  `max_height` int(5) NOT NULL,
   `plugin_counter` tinyint(1) NOT NULL,
-  `plugin_limiter` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `plugins` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `plugin_limiter` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `plugins` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 LOCK TABLES `rex_redactor_profile` WRITE;
 /*!40000 ALTER TABLE `rex_redactor_profile` DISABLE KEYS */;
@@ -705,59 +676,59 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_sprog_wildcard`;
 CREATE TABLE `rex_sprog_wildcard` (
-  `pid` int unsigned NOT NULL AUTO_INCREMENT,
-  `id` int unsigned NOT NULL,
-  `clang_id` int unsigned NOT NULL,
-  `wildcard` varchar(255) DEFAULT NULL,
-  `replace` text,
-  `createuser` varchar(255) NOT NULL,
-  `updateuser` varchar(255) NOT NULL,
+  `pid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
+  `clang_id` int(11) NOT NULL,
+  `wildcard` varchar(255) NOT NULL,
+  `replace` text NOT NULL,
   `createdate` datetime NOT NULL,
+  `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
-  `revision` int unsigned NOT NULL,
+  `updateuser` varchar(255) NOT NULL,
+  `revision` int(11) NOT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_sprog_wildcard` WRITE;
 /*!40000 ALTER TABLE `rex_sprog_wildcard` DISABLE KEYS */;
 INSERT INTO `rex_sprog_wildcard` VALUES 
-  (1,1,1,'more_info','Mehr Informationen','admin','admin','2016-05-30 19:54:56','2016-05-30 19:54:56',0),
-  (2,1,2,'more_info','More Information','admin','admin','2016-05-30 19:54:56','2016-05-30 19:58:27',0),
-  (3,2,1,'form_firstname','Vorname','admin','admin','2016-05-30 20:03:22','2016-05-30 20:03:22',0),
-  (4,2,2,'form_firstname','First name','admin','admin','2016-05-30 20:03:22','2016-05-30 20:36:52',0),
-  (5,3,1,'form_error_firstname','Bitte Vornamen angeben','admin','admin','2016-05-30 20:34:44','2016-05-30 20:34:44',0),
-  (6,3,2,'form_error_firstname','Please fill in your first name','admin','admin','2016-05-30 20:34:44','2016-05-30 20:47:13',0),
-  (7,4,1,'form_lastname','Nachname','admin','admin','2016-05-30 20:35:48','2016-05-30 20:35:48',0),
-  (8,4,2,'form_lastname',' Last name','admin','admin','2016-05-30 20:35:48','2016-05-30 20:46:38',0),
-  (9,5,1,'form_error_lastname','Bitte Nachnamen angeben','admin','admin','2016-05-30 20:36:01','2016-05-30 20:36:01',0),
-  (10,5,2,'form_error_lastname','Please fill in your last name','admin','admin','2016-05-30 20:36:01','2016-05-30 20:47:28',0),
-  (11,6,1,'form_message','Nachricht','admin','admin','2016-05-30 20:36:09','2016-05-30 20:36:09',0),
-  (12,6,2,'form_message','Message','admin','admin','2016-05-30 20:36:09','2016-05-30 20:46:48',0),
-  (13,7,1,'form_error_message','Bitte Nachricht angeben','admin','admin','2016-05-30 20:36:21','2016-05-30 20:36:21',0),
-  (14,7,2,'form_error_message','Please fill in your message','admin','admin','2016-05-30 20:36:22','2016-05-30 20:47:45',0),
-  (15,8,1,'form_send','Nachricht senden','admin','admin','2016-05-30 20:36:29','2016-05-30 20:49:02',0),
-  (16,8,2,'form_send','Send message','admin','admin','2016-05-30 20:36:30','2016-05-30 20:46:26',0),
-  (17,9,1,'languages','Sprachen','admin','admin','2016-06-01 23:26:33','2016-06-01 23:26:33',0),
-  (18,9,2,'languages','Sprachen','admin','admin','2016-06-01 23:26:33','2016-06-01 23:26:33',0);
+  (1,1,1,'more_info','Mehr Informationen','2016-05-30 19:54:56','admin','2016-05-30 19:54:56','admin',0),
+  (2,1,2,'more_info','More Information','2016-05-30 19:54:56','admin','2016-05-30 19:58:27','admin',0),
+  (3,2,1,'form_firstname','Vorname','2016-05-30 20:03:22','admin','2016-05-30 20:03:22','admin',0),
+  (4,2,2,'form_firstname','First name','2016-05-30 20:03:22','admin','2016-05-30 20:36:52','admin',0),
+  (5,3,1,'form_error_firstname','Bitte Vornamen angeben','2016-05-30 20:34:44','admin','2016-05-30 20:34:44','admin',0),
+  (6,3,2,'form_error_firstname','Please fill in your first name','2016-05-30 20:34:44','admin','2016-05-30 20:47:13','admin',0),
+  (7,4,1,'form_lastname','Nachname','2016-05-30 20:35:48','admin','2016-05-30 20:35:48','admin',0),
+  (8,4,2,'form_lastname',' Last name','2016-05-30 20:35:48','admin','2016-05-30 20:46:38','admin',0),
+  (9,5,1,'form_error_lastname','Bitte Nachnamen angeben','2016-05-30 20:36:01','admin','2016-05-30 20:36:01','admin',0),
+  (10,5,2,'form_error_lastname','Please fill in your last name','2016-05-30 20:36:01','admin','2016-05-30 20:47:28','admin',0),
+  (11,6,1,'form_message','Nachricht','2016-05-30 20:36:09','admin','2016-05-30 20:36:09','admin',0),
+  (12,6,2,'form_message','Message','2016-05-30 20:36:09','admin','2016-05-30 20:46:48','admin',0),
+  (13,7,1,'form_error_message','Bitte Nachricht angeben','2016-05-30 20:36:21','admin','2016-05-30 20:36:21','admin',0),
+  (14,7,2,'form_error_message','Please fill in your message','2016-05-30 20:36:22','admin','2016-05-30 20:47:45','admin',0),
+  (15,8,1,'form_send','Nachricht senden','2016-05-30 20:36:29','admin','2016-05-30 20:49:02','admin',0),
+  (16,8,2,'form_send','Send message','2016-05-30 20:36:30','admin','2016-05-30 20:46:26','admin',0),
+  (17,9,1,'languages','Sprachen','2016-06-01 23:26:33','admin','2016-06-01 23:26:33','admin',0),
+  (18,9,2,'languages','Sprachen','2016-06-01 23:26:33','admin','2016-06-01 23:26:33','admin',0);
 /*!40000 ALTER TABLE `rex_sprog_wildcard` ENABLE KEYS */;
 UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `rex_template`;
 CREATE TABLE `rex_template` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `key` varchar(191) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `content` mediumtext,
+  `content` mediumtext DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
   `createdate` datetime NOT NULL,
-  `attributes` text,
-  `revision` int NOT NULL,
+  `attributes` text DEFAULT NULL,
+  `revision` int(11) NOT NULL,
   `createuser` varchar(255) NOT NULL,
   `updatedate` datetime NOT NULL,
   `updateuser` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rex_template` WRITE;
 /*!40000 ALTER TABLE `rex_template` DISABLE KEYS */;
@@ -775,92 +746,4 @@ INSERT INTO `rex_template` VALUES
 /*!40000 ALTER TABLE `rex_template` ENABLE KEYS */;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `rex_user_role`;
-CREATE TABLE `rex_user_role` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `description` text,
-  `perms` text NOT NULL,
-  `createdate` datetime NOT NULL,
-  `revision` int unsigned NOT NULL,
-  `createuser` varchar(255) NOT NULL,
-  `updatedate` datetime NOT NULL,
-  `updateuser` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-DROP TABLE IF EXISTS `rex_yform_email_template`;
-CREATE TABLE `rex_yform_email_template` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `mail_from` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `mail_from_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `mail_reply_to` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `mail_reply_to_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `subject` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `body_html` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attachments` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `updatedate` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-DROP TABLE IF EXISTS `rex_yform_field`;
-CREATE TABLE `rex_yform_field` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `table_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prio` int NOT NULL,
-  `type_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `db_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `list_hidden` tinyint(1) NOT NULL,
-  `search` tinyint(1) NOT NULL,
-  `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `label` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `not_required` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `multiple` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expanded` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `choices` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `choice_attributes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-DROP TABLE IF EXISTS `rex_yform_history`;
-CREATE TABLE `rex_yform_history` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `table_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dataset_id` int NOT NULL,
-  `action` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `timestamp` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `dataset` (`table_name`,`dataset_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-DROP TABLE IF EXISTS `rex_yform_history_field`;
-CREATE TABLE `rex_yform_history_field` (
-  `history_id` int NOT NULL,
-  `field` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`history_id`,`field`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-DROP TABLE IF EXISTS `rex_yform_table`;
-CREATE TABLE `rex_yform_table` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `status` tinyint(1) NOT NULL,
-  `table_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `list_amount` int NOT NULL DEFAULT '50',
-  `list_sortfield` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'id',
-  `list_sortorder` enum('ASC','DESC') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'ASC',
-  `prio` int NOT NULL,
-  `search` tinyint(1) NOT NULL,
-  `hidden` tinyint(1) NOT NULL,
-  `export` tinyint(1) NOT NULL,
-  `import` tinyint(1) NOT NULL,
-  `mass_deletion` tinyint(1) NOT NULL,
-  `mass_edit` tinyint(1) NOT NULL,
-  `schema_overwrite` tinyint(1) NOT NULL DEFAULT '1',
-  `history` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `table_name` (`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SET FOREIGN_KEY_CHECKS = 1;
