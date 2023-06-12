@@ -20,6 +20,13 @@ if (isset($setupconfig['fileimport']) && is_array($setupconfig['fileimport']) &&
     }
 }
 
+// delete media-files
+rex_dir::deleteFiles(rex_path::media(), false);
+rex_file::put(rex_path::media('.redaxo'), "// Ordner für abgelegte Dateien von redaxo\n");
+
+// delete directory 'resources'
+rex_dir::delete(rex_path::base('resources'), true);
+
 // update config
 // remove additional config from base config
 $config = array_diff_recursive(

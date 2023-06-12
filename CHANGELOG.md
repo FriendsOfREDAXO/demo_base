@@ -7,6 +7,8 @@
   * beim Datenbank-Backup werden nur die benötigten Tabellen exportiert
   * `demo_base:dump_files`, erstellt Datei-Backup `backups/demo_base.tar.gz`
 * Demo-Backups mit den Console-Commands neu erstellt
+* Ordner `media` bei Deinstallation leeren
+* Ordner `resources` bei Deinstallation löschen
 
 ### Bugfixes
 
