@@ -1,6 +1,18 @@
 # REDAXO Demo Base - Changelog
 
-## Version 3.0.2 – 08.06.2022
+## Version 3.0.3 – 13.06.2023
+
+* Neue Console-Commands zur Erstellung der Demo-Exporte @aeberhard
+  * `demo_base:dump_tables`, erstellt Datenbank-Backup `backups/demo_base.utf8.sql`
+  * beim Datenbank-Backup werden nur die benötigten Tabellen exportiert
+  * `demo_base:dump_files`, erstellt Datei-Backup `backups/demo_base.tar.gz`
+* Demo-Backups mit den Console-Commands neu erstellt
+
+### Bugfixes
+
+* Bei Modulen die Klasse `markitupEditor-full` durch `markitupEditor-markdown_full` ersetzt, da der Editor nicht angezeigt wurde (Update des markitup-Addons)
+
+## Version 3.0.2 – 08.06.2023
 
 * Neue Versionen der benötigten AddOns in package.setup.yml @aeberhard
   * markitup 3.7.3 -> 3.7.4
