@@ -26,7 +26,7 @@ final class rex_command_demo_base_dumptables extends rex_console_command
             return 1;
         }
 
-        if (!$skipConfirmation && !$io->confirm('Current file backups/demo_base.sql will be overwritten. Would you like to proceed?')) {
+        if (!$skipConfirmation && !$io->confirm('Current file backups/demo_base.utf8.sql will be overwritten. Would you like to proceed?')) {
             return 1;
         }
 
