@@ -1,6 +1,6 @@
 # REDAXO Demo Base - Changelog
 
-## Version 3.0.3 – 13.06.2023
+## Version 3.1.0 – 14.06.2023
 
 * Neue Console-Commands zur Erstellung der Demo-Exporte @aeberhard
   * `demo_base:dump_tables`, erstellt Datenbank-Backup `backups/demo_base.utf8.sql`
