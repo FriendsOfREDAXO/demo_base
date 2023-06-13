@@ -2,6 +2,8 @@
 
 ## Version 3.1.0 – 14.06.2023
 
+### Neu
+
 * Neue Console-Commands zur Erstellung der Demo-Exporte @aeberhard
   * `demo_base:dump_tables`, erstellt Datenbank-Backup `backups/demo_base.utf8.sql`
   * beim Datenbank-Backup werden nur die benötigten Tabellen exportiert
