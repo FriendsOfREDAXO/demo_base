@@ -25,7 +25,10 @@ rex_dir::deleteFiles(rex_path::media(), false);
 rex_file::put(rex_path::media('.redaxo'), "// Ordner für abgelegte Dateien von redaxo\n");
 
 // delete directory 'resources'
-rex_dir::delete(rex_path::base('resources'), true);
+if (!rex_dir::delete(rex_path::base('resources'), true) ) {
+    rex_logger::factory()->warning("AddOn: demo_base
+    Das Verzeichnis ".rex_path::base('resources')." konnte nicht gelöscht werden.");
+}
 
 // update config
 // remove additional config from base config
