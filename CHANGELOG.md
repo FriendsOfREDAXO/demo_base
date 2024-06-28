@@ -1,5 +1,17 @@
 # REDAXO Demo Base - Changelog
 
+## Version 3.2.0 – 28.06.2024
+
+### Neu
+
+* Uninstall - Meldungsausgabe bei fehlschlagen des löschens eines Verzeichnisses @Koala
+
+### Bugfixes
+
+* Neue Versionen der benötigten AddOns in package.setup.yml @aeberhard
+    * markitup 3.7.4 -> 3.8.0
+    * redactor 2.3.0 -> 2.5.1
+
 ## Version 3.1.0 – 14.06.2023
 
 ### Neu
