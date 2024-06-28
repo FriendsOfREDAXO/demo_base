@@ -11,7 +11,7 @@ requires:
 # hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
 setup:
     packages:
-        markitup: 4864    # 3.7.4
+        markitup: 5509    # 3.8.0
         redactor: 5598    # 2.5.1
         sprog: 4720       # 1.5.1
         yform: 4941       # 4.1.1
