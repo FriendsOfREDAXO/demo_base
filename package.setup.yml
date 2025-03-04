@@ -1,7 +1,7 @@
 # additional requires (non-system packages)
 requires:
     packages:
-        markitup: '^3.8.0'
+        markitup: '^4.0.0'
         phpmailer: '^2.5.1'
         redactor: '^2.5.1'
         sprog: '^1.5.1'
