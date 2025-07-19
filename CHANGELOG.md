@@ -1,5 +1,14 @@
 # REDAXO Demo Base - Changelog
 
+## Version 3.3.3 – 19.07.2025
+
+AddOn-Updates
+
+* markitup: 4.0.1
+* redactor: 2.5.3
+* sprog: 1.5.1
+* yform: 4.2.1
+
 ## Version 3.2.0 – 28.06.2024
 
 ### Neu

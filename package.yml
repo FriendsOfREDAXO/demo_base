@@ -1,5 +1,5 @@
 package: demo_base
-version: 3.3.2
+version: 3.3.3
 author: 'Friends Of REDAXO'
 supportpage: 'https://github.com/FriendsOfREDAXO/demo_base'
 page:
@@ -20,8 +20,7 @@ requires:
         backup: '^2.3.0'
         structure/content: '^2.7.0'
     redaxo: '^5.9.0'
-    php:
-      version: '^8.0' # benötigt mindestens PHP 7.4
+    php: '>=8.0'
 console_commands:
     'demo_base:install': rex_command_demo_base_install
     'demo_base:dump_files': rex_command_demo_base_dumpfiles
