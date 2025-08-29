@@ -1,5 +1,7 @@
 <?php
 
+use FriendsOfRedaxo\DemoBase\rex_demo_base;
+
 /** @var rex_addon $this */
 
 // add success message after add-on install

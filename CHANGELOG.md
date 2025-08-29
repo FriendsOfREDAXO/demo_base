@@ -1,5 +1,11 @@
 # REDAXO Demo Base - Changelog
 
+## Version 3.4.0 – 29.08.2025
+
+* Umstellung auf FOR-Namespace
+* Console-Commands in package.yml an FOR-Namespace angepasst
+* Backup-Files neu mit Console-Commands erstellt
+
 ## Version 3.3.3 – 19.07.2025
 
 AddOn-Updates

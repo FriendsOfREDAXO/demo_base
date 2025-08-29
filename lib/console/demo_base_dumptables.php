@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+namespace FriendsOfRedaxo\DemoBase;
+
+use rex_console_command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
