@@ -122,7 +122,7 @@ class rex_demo_base
         }
 
         // step 2: download required packages
-        if (count($missingPackages) > 0 && 0 == count($errors)) {
+        if (!empty($missingPackages) && empty($errors)) {
             foreach ($missingPackages as $id => $fileId) {
                 $installerPackage = $packagesFromInstaller[$id]['files'][$fileId];
                 if ($installerPackage) {
