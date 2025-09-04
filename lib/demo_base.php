@@ -26,7 +26,7 @@ class rex_demo_base
 {
     /** @var array<string> */
     private const EXPDIR = [
-        'media', 'resources',
+        'media', 'resources'
     ];
 
     /**
