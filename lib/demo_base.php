@@ -102,7 +102,7 @@ class rex_demo_base
                 rex_logger::logException($e);
             }
 
-            if (0 == count($errors)) {
+            if (empty($errors)) {
                 foreach ($packages as $id => $fileId) {
                     $localPackage = rex_package::get($id);
                     if ($localPackage->isSystemPackage()) {
