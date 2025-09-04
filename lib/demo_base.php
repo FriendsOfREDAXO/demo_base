@@ -194,7 +194,7 @@ class rex_demo_base
         }
 
         // step 5: import files
-        if (count($addon->getProperty('setup')['fileimport']) > 0 && 0 == count($errors)) {
+        if (!empty($addon->getProperty('setup')['fileimport']) && empty($errors)) {
             foreach ($addon->getProperty('setup')['fileimport'] as $import) {
                 $file = rex_backup::getDir() . '/' . $import;
                 $success = rex_backup::importFiles($file);
