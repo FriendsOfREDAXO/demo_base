@@ -154,7 +154,7 @@ class rex_demo_base
         }
 
         // step 3: install and activate packages based on install sequence from config
-        if (count($addon->getProperty('setup')['installSequence']) > 0 && 0 == count($errors)) {
+        if (!empty($addon->getProperty('setup')['installSequence']) && empty($errors)) {
             foreach ($addon->getProperty('setup')['installSequence'] as $id) {
                 $package = rex_package::get($id);
                 if ($package instanceof rex_null_package) {
