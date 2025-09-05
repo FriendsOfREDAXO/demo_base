@@ -183,7 +183,7 @@ class rex_demo_base
         }
 
         // step 4: import database
-        if (!empty($addon->getProperty('setup')['dbimport']) && 0 == count($errors)) {
+        if (!empty($addon->getProperty('setup')['dbimport']) && empty($errors)) {
             foreach ($addon->getProperty('setup')['dbimport'] as $import) {
                 $file = rex_backup::getDir() . '/' . $import;
                 $success = rex_backup::importDb($file);
