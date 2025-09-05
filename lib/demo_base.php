@@ -1,7 +1,30 @@
 <?php
-class rex_demo_base {
 
-    /** @var string[] */
+namespace FriendsOfRedaxo\DemoBase;
+
+use rex;
+use rex_addon;
+use rex_backup;
+use rex_dir;
+use rex_functional_exception;
+use rex_i18n;
+use rex_install_archive;
+use rex_install_packages;
+use rex_install_webservice;
+use rex_logger;
+use rex_null_package;
+use rex_package;
+use rex_package_manager;
+use rex_path;
+use rex_yrewrite;
+
+use function count;
+
+use const DIRECTORY_SEPARATOR;
+
+class rex_demo_base
+{
+    /** @var array<string> */
     private const EXPDIR = [
         'media', 'resources'
     ];
@@ -11,9 +34,8 @@ class rex_demo_base {
      */
     public static function dump_files(): array
     {
-
         $addon = rex_addon::get('demo_base');
-        $exportPath = $addon->getPath('backups') . DIRECTORY_SEPARATOR  . 'demo_base.tar.gz';
+        $exportPath = $addon->getPath('backups') . DIRECTORY_SEPARATOR . 'demo_base.tar.gz';
 
         rex_backup::exportFiles(self::EXPDIR, $exportPath);
 
@@ -26,7 +48,7 @@ class rex_demo_base {
     public static function dump_tables(): array
     {
         $addon = rex_addon::get('demo_base');
-        $exportPath = $addon->getPath('backups') . DIRECTORY_SEPARATOR  . 'demo_base.utf8.sql';
+        $exportPath = $addon->getPath('backups') . DIRECTORY_SEPARATOR . 'demo_base.utf8.sql';
         $error = [];
 
         $EXPTABLES = [
@@ -55,23 +77,23 @@ class rex_demo_base {
         return $error;
     }
 
-    public static function install() {
+    public static function install()
+    {
         $addon = rex_addon::get('demo_base');
 
         // in some cases rex_addon has the old package.yml in cache. But we need our new merged package.yml
         $addon->loadProperties();
 
-        $errors = array();
+        $errors = [];
 
         // step 1: select missing packages we need to download
-        $missingPackages = array();
-        $packages = array();
+        $missingPackages = [];
+        $packages = [];
         if (isset($addon->getProperty('setup')['packages'])) {
             $packages = $addon->getProperty('setup')['packages'];
         }
 
         if (count($packages) > 0) {
-
             // fetch list of available packages from to redaxo webservice
             try {
                 $packagesFromInstaller = rex_install_packages::getAddPackages();
@@ -80,15 +102,14 @@ class rex_demo_base {
                 rex_logger::logException($e);
             }
 
-            if (count($errors) == 0) {
+            if (empty($errors)) {
                 foreach ($packages as $id => $fileId) {
-
                     $localPackage = rex_package::get($id);
                     if ($localPackage->isSystemPackage()) {
                         continue; // skip system packages, they don’t need to be downloaded
                     }
 
-                    $installerPackage = isset($packagesFromInstaller[$id]['files'][$fileId]) ? $packagesFromInstaller[$id]['files'][$fileId] : false;
+                    $installerPackage = $packagesFromInstaller[$id]['files'][$fileId] ?? false;
                     if (!$installerPackage) {
                         $errors[] = $addon->i18n('package_not_available', $id);
                     }
@@ -101,12 +122,10 @@ class rex_demo_base {
         }
 
         // step 2: download required packages
-        if (count($missingPackages) > 0 && count($errors) == 0) {
+        if (!empty($missingPackages) && empty($errors)) {
             foreach ($missingPackages as $id => $fileId) {
-
                 $installerPackage = $packagesFromInstaller[$id]['files'][$fileId];
                 if ($installerPackage) {
-
                     // fetch package
                     try {
                         $archivefile = rex_install_webservice::getArchive($installerPackage['path']);
@@ -135,9 +154,8 @@ class rex_demo_base {
         }
 
         // step 3: install and activate packages based on install sequence from config
-        if (count($addon->getProperty('setup')['installSequence']) > 0 && count($errors) == 0) {
+        if (!empty($addon->getProperty('setup')['installSequence']) && empty($errors)) {
             foreach ($addon->getProperty('setup')['installSequence'] as $id) {
-
                 $package = rex_package::get($id);
                 if ($package instanceof rex_null_package) {
                     $errors[] = $addon->i18n('package_not_exists', $id);
@@ -165,7 +183,7 @@ class rex_demo_base {
         }
 
         // step 4: import database
-        if (count($addon->getProperty('setup')['dbimport']) > 0 && count($errors) == 0) {
+        if (!empty($addon->getProperty('setup')['dbimport']) && empty($errors)) {
             foreach ($addon->getProperty('setup')['dbimport'] as $import) {
                 $file = rex_backup::getDir() . '/' . $import;
                 $success = rex_backup::importDb($file);
@@ -176,7 +194,7 @@ class rex_demo_base {
         }
 
         // step 5: import files
-        if (count($addon->getProperty('setup')['fileimport']) > 0 && count($errors) == 0) {
+        if (!empty($addon->getProperty('setup')['fileimport']) && empty($errors)) {
             foreach ($addon->getProperty('setup')['fileimport'] as $import) {
                 $file = rex_backup::getDir() . '/' . $import;
                 $success = rex_backup::importFiles($file);

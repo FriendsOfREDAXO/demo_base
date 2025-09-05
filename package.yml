@@ -1,5 +1,5 @@
 package: demo_base
-version: 3.3.3
+version: 3.4.0
 author: 'Friends Of REDAXO'
 supportpage: 'https://github.com/FriendsOfREDAXO/demo_base'
 page:
@@ -22,6 +22,6 @@ requires:
     redaxo: '^5.9.0'
     php: '>=8.0'
 console_commands:
-    'demo_base:install': rex_command_demo_base_install
-    'demo_base:dump_files': rex_command_demo_base_dumpfiles
-    'demo_base:dump_tables': rex_command_demo_base_dumptables
+    'demo_base:install': FriendsOfRedaxo\DemoBase\rex_command_demo_base_install
+    'demo_base:dump_files': FriendsOfRedaxo\DemoBase\rex_command_demo_base_dumpfiles
+    'demo_base:dump_tables': FriendsOfRedaxo\DemoBase\rex_command_demo_base_dumptables
