@@ -1,5 +1,20 @@
 # REDAXO Demo Base - Changelog
 
+## Version 3.4.1 – 14.12.2025
+
+* Test mit REDAXO 5.20.1
+* Update demo_base.tar.gz
+
+### Fixed Issues
+
+* #103 AddOn yform konnte aus folgendem Grund nicht aktualisiert werden
+* #95 Falscher Abstand bei schmalen Bildschirmen / Mobile Devices
+
+### AddOn-Updates
+
+* redactor: 2.6.0
+* yform: 5.0.1
+
 ## Version 3.4.0 – 29.08.2025
 
 * Umstellung auf FOR-Namespace

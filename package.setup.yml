@@ -3,18 +3,18 @@ requires:
     packages:
         markitup: '^4.0.0'
         phpmailer: '^2.5.1'
-        redactor: '^2.5.1'
+        redactor: '^2.6.0'
         sprog: '^1.5.1'
-        yform: '^4.1.1'
+        yform: '^5.0.1'
 
 # setup config
 # hint: inspect link values inside of REDAXO installer to find out fileIds (numbers) for new packages!
 setup:
     packages:
         markitup: 5871    # 4.0.1
-        redactor: 5954    # 2.5.3
+        redactor: 6239    # 2.6.0
         sprog: 4720       # 1.5.1
-        yform: 5460       # 4.2.1
+        yform: 6482       # 5.0.1
     installSequence:
         - backup
         - structure/content
